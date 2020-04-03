@@ -4,7 +4,7 @@ class Extension extends \Twig_Extension implements Twig_Extension_GlobalsInterfa
     public function getGlobals()
     {
         return array(
-            'someStuff' => 'test',
+            'sitename' => getenv('cosmic.sitename'),
         );
     }
 }
