@@ -2,9 +2,9 @@
 
 namespace App\Controllers;
 
-class Home extends \CodeIgniter\Controller
+class Home extends AuthController
 {
-	public function index() {
-		return \Twig::instance()->display('Pages/Home/home.html');
-	}
+    public function view() {
+        return \Twig::instance()->display('Pages/Home/me.html');
+    }
 }

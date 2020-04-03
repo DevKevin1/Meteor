@@ -52,11 +52,13 @@ class Twig {
 
 		$twigEnv = new Twig_Environment($loader, array(
 			'cache' => $cacheDir,
+      'debug' => true,
 			'auto_reload' => true)
 		);
     
     $twigEnv->addExtension(new Extension());
-
+    $twigEnv->addExtension(new \Twig\Extension\DebugExtension());
+    
 		self::$_instance = new \Twig($templateDir, $cacheDir, $twigEnv);
 
 		return self::$_instance;

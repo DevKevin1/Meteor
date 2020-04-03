@@ -1,0 +1,27 @@
+body {
+    font-family: 'Baloo Da 2', cursive;
+    background-image: url('../../assets/images/large_hotel_left.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: left bottom;
+    background-size: 900px;
+}
+
+.mainContainer {
+    margin-top: 10vh;
+}
+
+@media only screen and (max-width: 600px) {
+    .mainContainer {
+        margin-top: 2vh;
+    }
+
+    .onlyDesktop {
+        display: none;
+    }
+}
+
+.footerTitle {
+    font-size: 18px;
+    text-shadow: 1px 2px white;
+}

@@ -12,8 +12,8 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* Pages/Home/home.html */
-class __TwigTemplate_be97df4bc181d2fd24d241eade3d468b02fadc52468de2be4717de0c067b6d49 extends \Twig\Template
+/* Pages/Home/login.html */
+class __TwigTemplate_b9d052d260b42d9ea29a450bfeb8af02dc0db90dc39c0a5617a60e0981e218e6 extends \Twig\Template
 {
     private $source;
     private $macros = [];
@@ -38,7 +38,7 @@ class __TwigTemplate_be97df4bc181d2fd24d241eade3d468b02fadc52468de2be4717de0c067
     protected function doDisplay(array $context, array $blocks = [])
     {
         $macros = $this->macros;
-        $this->parent = $this->loadTemplate("not_logged_in.html", "Pages/Home/home.html", 1);
+        $this->parent = $this->loadTemplate("not_logged_in.html", "Pages/Home/login.html", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
@@ -58,25 +58,38 @@ class __TwigTemplate_be97df4bc181d2fd24d241eade3d468b02fadc52468de2be4717de0c067
                         <hr>
                         <div class=\"row text-left\">
                             <div class=\"col-md-12\">
-                                <form action=\"\" method=\"POST\">
+                                <form action=\"login/request\" method=\"post\" id=\"login\">
                                     <label for=\"username\">Uw gebruikersnaam</label>
-                                    <input type=\"text\" name=\"username\" id=\"username\" class=\"form-control\"
+                                    <input type=\"text\" name=\"username\" id=\"username\" class=\"form-control ";
+        // line 13
+        if (twig_get_attribute($this->env, $this->source, ($context["validation"] ?? null), "geterror", [0 => "username"], "method", false, false, false, 13)) {
+            echo "error";
+        }
+        echo "\"
                                            placeholder=\"Vul hier uw gebruikersnaam in...\">
                                     <label for=\"password\" id=\"password\" class=\"pt-4\">Uw wachtwoord</label>
-                                    <input type=\"password\" name=\"password\" class=\"form-control\"
+                                    <input type=\"password\" name=\"password\" class=\"form-control ";
+        // line 16
+        if (twig_get_attribute($this->env, $this->source, ($context["validation"] ?? null), "geterror", [0 => "password"], "method", false, false, false, 16)) {
+            echo "error";
+        }
+        echo "\"
                                            placeholder=\"Vul hier uw wachtwoord in...\">
+                                
+                                    <div class=\"row mt-4\">
+                                        <div class=\"col-12 col-xs-12 col-md-12\">
+                                            <button class=\"btn btn-outline-info w-100\" type=\"submit\" form=\"login\">Inloggen</button>
+                                        </div>
+                                    </div>
                                 </form>
                                 <div class=\"row\">
-                                    <div class=\"col-12 col-xs-12 col-md-12\">
-                                        <button class=\"btn btn-outline-info w-100\">Inloggen</button>
-                                    </div>
-                                    <div class=\"col-12 col-xs-12 col-md-12\">
-                                        <button class=\"btn btn-outline-warning w-100\">Nieuw op ";
-        // line 24
+                                  <div class=\"col-12 col-xs-12 col-md-12\">
+                                      <button class=\"btn btn-outline-warning w-100\">Nieuw op ";
+        // line 27
         echo twig_escape_filter($this->env, ($context["hotelnaam"] ?? null), "html", null, true);
         echo "? Registreer hier!</button>
-                                    </div>
-                                </div>
+                                  </div>
+                              </div>
                             </div>
                         </div>
                     </div>
@@ -86,7 +99,7 @@ class __TwigTemplate_be97df4bc181d2fd24d241eade3d468b02fadc52468de2be4717de0c067
                 <div class=\"card\">
                     <div class=\"card-body\">
                         <h4>";
-        // line 35
+        // line 38
         echo twig_escape_filter($this->env, ($context["hotelname"] ?? null), "html", null, true);
         echo " Spotlight</h4>
                         <hr>
@@ -111,7 +124,7 @@ class __TwigTemplate_be97df4bc181d2fd24d241eade3d468b02fadc52468de2be4717de0c067
 
     public function getTemplateName()
     {
-        return "Pages/Home/home.html";
+        return "Pages/Home/login.html";
     }
 
     public function isTraitable()
@@ -121,11 +134,11 @@ class __TwigTemplate_be97df4bc181d2fd24d241eade3d468b02fadc52468de2be4717de0c067
 
     public function getDebugInfo()
     {
-        return array (  90 => 35,  76 => 24,  56 => 7,  46 => 2,  35 => 1,);
+        return array (  103 => 38,  89 => 27,  73 => 16,  65 => 13,  56 => 7,  46 => 2,  35 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("", "Pages/Home/home.html", "/var/www/cosmicproject.nl/Meteor/app/Views/Pages/Home/home.html");
+        return new Source("", "Pages/Home/login.html", "/var/www/cosmicproject.nl/Meteor/app/Views/Pages/Home/login.html");
     }
 }
