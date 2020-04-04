@@ -1,10 +1,10 @@
 <?php 
-
 namespace App\Controllers;
 
-class Home extends AuthController
+class Home extends Application
 {
-    public function view() {
-        return \Twig::instance()->display('Pages/Home/me.html');
+    public function view() 
+    {
+        return $this->render('home/me');
     }
 }

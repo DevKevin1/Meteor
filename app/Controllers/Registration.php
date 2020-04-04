@@ -1,14 +1,10 @@
 <?php 
 namespace App\Controllers;
 
-class Registration extends AuthController
+class Registration extends Application
 {
-    public function request() 
+    public function view() 
     {
-
-    }
-  
-    public function view() {
-        return \Twig::instance()->display('Pages/Home/registration.html');
+        return $this->render('home/registration');
     }
 }
