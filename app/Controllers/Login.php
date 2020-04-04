@@ -1,6 +1,7 @@
 <?php 
 namespace App\Controllers;
 use Config\Database;
+use App\Models\UserModel;
 
 class Login extends Application
 {
@@ -10,6 +11,7 @@ class Login extends Application
         parent::__construct(...$params);
         $this->db = \Config\Database::connect();
         $this->user_table = $this->db->table('users');
+        $this->userModel = new UserModel($this->db);
     }
 
     public function request()
@@ -38,8 +40,9 @@ class Login extends Application
         }
     }
   
-    public function view() 
+    public function view()
     {
+        print_r($this->userModel->find(1));
         if($this->session->get('loggedin') == 1)
         {
             return redirect()->to('/me');
