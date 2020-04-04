@@ -40,8 +40,8 @@ class TwigExtentions extends Twig_Extension implements \Twig_Extension_GlobalsIn
     {
         return array(
             'hotelname' => getenv('cosmic.sitename'),
-            'flash_messages' => $this->session->getFlashdata('validation'),
-            'web_data' => $this->session->getFlashdata('data')
+            'validation' => $this->session->getFlashdata('validation'),
+            'flashdata' => $this->session->getFlashData()
         );
     }
 

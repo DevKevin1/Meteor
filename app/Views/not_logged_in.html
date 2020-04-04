@@ -8,7 +8,7 @@
           href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
           integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Baloo+Da+2&display=swap" rel="stylesheet">
-    <link href="/assets/css/index.css?v=52" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/index.css?v=57" rel="stylesheet" type="text/css" />
     <link href="https://codeseven.github.io/toastr/build/toastr.min.css" rel="stylesheet" type="text/css" />
     <title>{{hotelname}} - Homepagina</title>
 </head>
@@ -51,9 +51,21 @@
         closeButton: 1,progressBar: 1,positionClass: 'toast-top-right',preventDuplicates: 1
     };
     
-    {% for error,key in flash_messages.getErrors %}
-    toastr.error("{{key|capitalize }}", "{{error|capitalize }}");
+    {% for error,key in validation.getErrors %}
+        toastr.error("{{key|capitalize }}", "{{error|capitalize }}");
     {% endfor %}
+    
+    {% if flashdata.error %}
+        toastr.error("{{flashdata.error}}", "Oops..");
+    {% endif %}
+    
+    {% if flashdata.info %}
+        toastr.info("{{flashdata.info}}", "Info");
+    {% endif %}
+    
+     {% if flashdata.success %}
+        toastr.success("{{flashdata.success}}", "Success!");
+    {% endif %}
 });</script>
 </body>
 </html>

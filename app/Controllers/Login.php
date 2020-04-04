@@ -19,6 +19,8 @@ class Login extends Application
   
     public function view() 
     {
+        $this->session->setFlashdata('success', 'test');
+
         return $this->render('home/login');
     }
 }
