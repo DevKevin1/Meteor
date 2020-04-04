@@ -1,3 +1,8 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
 body {
     font-family: 'Baloo Da 2', cursive;
     background-image: url('../../assets/images/large_hotel_left.png');
@@ -5,10 +10,41 @@ body {
     background-attachment: fixed;
     background-position: left bottom;
     background-size: 900px;
+    height: 100%;
+}
+
+h1,h2,h3,h4{
+    text-transform: uppercase;
+}
+
+.navbar{
+    box-shadow: none;
+}
+
+.table td{
+    border: none;
 }
 
 .mainContainer {
-    margin-top: 10vh;
+    margin-top: 5vh;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.navbar a {
+    font-size: 16px!important;
+}
+
+.dropdown-menu{
+    margin: 2px!important;
+}
+
+.navbar-toggler{
+    border-radius: 5px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -24,4 +60,40 @@ body {
 .footerTitle {
     font-size: 18px;
     text-shadow: 1px 2px white;
+}
+
+.footerSecTitle {
+    font-size: 14px;
+    text-shadow: 1px 2px white;
+}
+
+.navShadow{
+    transition: all 1s ease-out;
+    box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75);
+}
+
+.divider {
+    width: 1px;
+    margin: 7px 0;
+    background: lightgrey;
+}
+
+.avatar {
+    padding: 0;
+}
+
+@media only screen and (max-width: 600px) {
+    .avatar {
+        width: 60px;
+        margin-left: -10px;
+        margin-top: 0.5vh
+    }
+}
+
+@media (max-width: 768px) {
+    .avatar {
+        height: 110px;
+        margin-left: -15px;
+        width: 80px;
+    }
 }

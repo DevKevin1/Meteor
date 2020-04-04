@@ -1,0 +1,67 @@
+{% extends "logged_in.html" %}
+{% block body %}
+<h1 style="margin-top: 8vh;">Community</h1>
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h3>Popular Rooms</h3>
+                <hr>
+                <div class="row">
+                    <table class="table table-borderless">
+                        <tbody>
+                        <tr>
+                            <td class="text-center m-0">
+                                <img src="assets/images/room_icon_1.gif" class="img-fluid" width="30" alt="" style="margin-top: -5px;">
+                            </td>
+                            <td class="text-center m-0">
+                                <p class="font-weight-bold">Mijn Kamer</p>
+                            </td>
+                            <td class="text-center m-0">
+                                Bezoek deze kamer
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h3>Most {{data}}</h3>
+                <hr>
+                <div class="row">
+                    <table class="table table-borderless">
+                        <tbody>
+                        <tr>
+                            <td class="text-center m-0">
+                                <img src="assets/images/avatarimage.png" class="img-fluid" width="30" alt="" style="margin-top: -5px;">
+                            </td>
+                            <td class="text-center m-0">
+                                <p class="font-weight-bold">aa</p>
+                            </td>
+                            <td class="text-center m-0">
+                                200 diamanten
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center m-0">
+                                <img src="assets/images/avatarimage.png" class="img-fluid" width="30" alt="" style="margin-top: -5px;">
+                            </td>
+                            <td class="text-center">
+                                <p class="font-weight-bold">Highrun</p>
+                            </td>
+                            <td class="text-center">
+                                200 diamanten
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

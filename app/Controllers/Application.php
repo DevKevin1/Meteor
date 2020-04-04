@@ -32,9 +32,9 @@ class Application extends Controller
         $this->session = \Config\Services::session();
     }
 
-    public function render(string $page, string $title = null, string $keyword = null)
+    public function render(string $page, $args = [])
     {
-        $this->response->setBody($this->twig->Rendered($page, $this->data));
+        $this->response->setBody($this->twig->Rendered($page, $args));
         $this->response->send();
 
         return $this;
