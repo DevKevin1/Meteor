@@ -1,19 +1,17 @@
 <?php 
 namespace App\Controllers;
+
 use Config\Database;
 use App\Models\UserModel;
 
 class Login extends Application
 {
-
-    public function __construct(...$params)
+    public function __construct()
     {
-        parent::__construct(...$params);
-        $this->db = \Config\Database::connect();
-        $this->user_table = $this->db->table('users');
-        $this->userModel = new UserModel($this->db);
+        parent::__construct();
+        $this->userModel = new UserModel();
     }
-
+  
     public function request()
     {
         if (!$this->validate([
@@ -23,18 +21,18 @@ class Login extends Application
             $this->session->setFlashdata('validation', $this->validator);
             return redirect()->to('/');
         } else {
-            $username = $_POST['username'];
-            $password = $_POST['password'];
-            $result = $this->user_table->select('*')->where('username', $username)->get()->getRow();
-            if(password_verify($password, $result->password))
+          
+            $username = $this->request->getVar('username', FILTER_SANITIZE_STRING);
+            $password = $this->request->getVar('password', FILTER_SANITIZE_STRING);
+          
+            $user = $this->userModel->getUserByUsername($username);
+            if($user && password_verify($password, $user->password))
             {
-                $userDetails = $this->user_table->select('username, mail, credits, pixels, points, look, gender, online, motto')->where('username', $username)->get()->getRow();
-                $this->session->set('loggedin', 1);
-                $this->session->set('user', $userDetails);
-                print_r($this->session->get('userdetails'));
+                $this->session->set('user', $user);
                 return redirect()->to('/me');
             } else {
                 $this->session->setFlashdata('validation', $this->validator);
+                $this->session->setFlashdata('error', 'User credentials wrong');
                 return redirect()->to('/');
             }
         }
@@ -42,12 +40,10 @@ class Login extends Application
   
     public function view()
     {
-        print_r($this->userModel->find(1));
-        if($this->session->get('loggedin') == 1)
-        {
+        if($this->session->get('user')) {
             return redirect()->to('/me');
-        } else {
-            return $this->render('home/login');
         }
+      
+        return $this->render('home/login');
     }
 }
