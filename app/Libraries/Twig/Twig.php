@@ -32,7 +32,7 @@ class Twig
         $this->environment = new Twig_Environment($loader, $dataconfig);
         $this->environment->addExtension(new TwigExtentions());
 
-        if ($config_model->settings()->debug === '1') {
+        if ($config_model->settings('debug') === '1') {
             $this->environment->addExtension(new Twig_Extension_Debug());
         }
     }

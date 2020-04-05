@@ -45,7 +45,7 @@ class Registration extends \App\Controllers\Application
             $avatar   = $this->request->getVar('habbo-avatar', FILTER_SANITIZE_STRING);
             $email    = $this->request->getVar('email', FILTER_SANITIZE_STRING);
             $gender   = $this->request->getVar('gender', FILTER_SANITIZE_STRING);
-            $credits  = $this->configModel->settings()->start_credits;
+            $credits  = $this->configModel->find('start_credits')->value;
             $ipaddres = $this->request->getIPAddress();
           
             $password_hash = password_hash($password, PASSWORD_BCRYPT);
