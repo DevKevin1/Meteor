@@ -34,6 +34,7 @@ $routes->get('/', 'Login::view');
 $routes->get('/me', 'Home::view');
 $routes->get('/register', 'Registration::view');
 $routes->get('/community', 'Community::view');
+$routes->get('/staff', 'Community::staff');
 $routes->post('/handleRegistration', 'Registration::store');
 $routes->get('/logout', 'Home::logout');
 

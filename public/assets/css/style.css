@@ -13,7 +13,7 @@ body {
     height: 100%;
 }
 
-h1,h2,h3,h4{
+h1,h2,h3{
     text-transform: uppercase;
 }
 
@@ -76,6 +76,13 @@ footer {
     width: 1px;
     margin: 7px 0;
     background: lightgrey;
+}
+
+.userStatus {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    display: inline-block;
 }
 
 .avatar {

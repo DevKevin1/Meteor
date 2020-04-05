@@ -1,7 +1,7 @@
 {% extends "not_logged_in.html" %}
-{% block body %}  
+{% block body %}
       <div class="row">
-            <div class="col-md-6 mt-3">
+            <div class="col-md-6 mt-3 animated pulse">
                 <div class="card">
                     <div class="card-body">
                         <h4>Welkom op {{hotelname}}!</h4>
@@ -24,7 +24,7 @@
                                 </form>
                                 <div class="row">
                                   <div class="col-12 col-xs-12 col-md-12">
-                                      <a href="/register" class="btn btn-outline-warning w-100">Nieuw op {{hotelnaam}}? Registreer hier!</a>
+                                      <a href="/register" class="btn btn-outline-warning w-100">Nieuw op {{hotelname}}? Registreer hier!</a>
                                   </div>
                               </div>
                             </div>
@@ -32,7 +32,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 mt-3">
+            <div class="col-md-6 mt-3 spotlight animated pulse delay-2s">
                 <div class="card">
                     <div class="card-body">
                         <h4>{{hotelname}} Spotlight</h4>

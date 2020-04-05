@@ -1,0 +1,49 @@
+{% extends "logged_in.html" %}
+{% block body %}
+<h1 style="margin-top: 6vh;">{{hotelname}} Staff</h1>
+<div class="row">
+    {% for employee in data %}
+    {% if employee.users is not empty %}
+    <div class="col-md-7 mt-3 flex-column">
+        <div class="card">
+            <div class="card-body">
+                <h3>{{employee.rank_name}}</h3>
+                {% for user in employee.users %}
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img src="https://www.habbo.com.br/habbo-imaging/avatarimage?figure={{user.look}}&direction=2&head_direction=3&gesture=sml&size=b&headonly=1" alt="" class="img-fluid" style="margin-top: 15px; margin-left: 0px;">
+                            </div>
+                            <div class="col-md-8 text-left pt-4">
+                                <div class="row">
+                                    <div class="col-md-4 m-0">
+                                        <h4>{{user.username}}</h4>
+                                    </div>
+                                </div>
+                                <p class="text-muted">{{user.motto}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-right">
+                        <span class="userStatus" style="background-color: #b71c1c; margin-top: 4vh;"></span>
+                    </div>
+                </div>
+                <hr>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+    <div class="col-md-4 mt-3">
+        <div class="card">
+            <div class="card-body">
+              <h4>{{hotelname}} Staff</h4>
+                <hr>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

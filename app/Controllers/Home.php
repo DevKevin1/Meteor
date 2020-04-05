@@ -6,17 +6,17 @@ class Home extends Application
 {
     public function view() 
     {
-        if($this->session->get('loggedin') == 1)
+        if($this->session->get('user'))
         {
             return $this->render('home/me');
         } else {
-            return redirect('/');
+            return redirect()->to('/');
         }
     }
 
     public function logout()
     {
-        $this->session->set('loggedin', 0);
+        $this->session->removeTempdata('user');
         $this->session->stop();
         return redirect()->to('/');
     }

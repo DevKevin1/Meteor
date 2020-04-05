@@ -30,33 +30,24 @@
     <div class="col-md-6">
         <div class="card">
             <div class="card-body">
-                <h3>Most {{data}}</h3>
+                <h3>Most Diamonds</h3>
                 <hr>
                 <div class="row">
                     <table class="table table-borderless">
                         <tbody>
+                        {% for user in getPointsUsers %}
                         <tr>
                             <td class="text-center m-0">
-                                <img src="assets/images/avatarimage.png" class="img-fluid" width="30" alt="" style="margin-top: -5px;">
+                                <img src="https://www.habbo.com.br/habbo-imaging/avatarimage?figure={{user.look}}&direction=2&head_direction=3&gesture=sml&size=b&headonly=1" alt="" class="img-fluid" height="70" style="margin-top: -20px; margin-left: -15px;">
                             </td>
                             <td class="text-center m-0">
-                                <p class="font-weight-bold">aa</p>
+                                <p class="font-weight-bold">{{user.username}}</p>
                             </td>
                             <td class="text-center m-0">
-                                200 diamanten
+                               <b>{{user.points}}</b> diamanten
                             </td>
                         </tr>
-                        <tr>
-                            <td class="text-center m-0">
-                                <img src="assets/images/avatarimage.png" class="img-fluid" width="30" alt="" style="margin-top: -5px;">
-                            </td>
-                            <td class="text-center">
-                                <p class="font-weight-bold">Highrun</p>
-                            </td>
-                            <td class="text-center">
-                                200 diamanten
-                            </td>
-                        </tr>
+                        {% endfor %}
                         </tbody>
                     </table>
                 </div>

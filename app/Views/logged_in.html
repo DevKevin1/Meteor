@@ -14,6 +14,12 @@
 <body>
 
 <header>
+    <svg class="onlyDesktop" style="position: absolute; top: 0; right: 0;" width="800" height="950"
+         viewBox="0 300 10 800" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(300, 300)">
+            <path d="M103.4,-104.4C125.2,-81.6,128.1,-40.8,141.2,13.1C154.3,66.9,177.5,133.9,155.7,180.2C133.9,226.5,66.9,252.3,13.3,239C-40.3,225.6,-80.6,173.3,-122.8,126.9C-164.9,80.6,-209,40.3,-218.9,-9.9C-228.8,-60.1,-204.5,-120.2,-162.4,-143C-120.2,-165.9,-60.1,-151.4,-9.7,-141.8C40.8,-132.1,81.6,-127.2,103.4,-104.4Z" fill="rgba(10, 10, 10, 0.59)" stroke="none" stroke-width="0"></path>
+        </g>
+    </svg>
     <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-transparent">
         <div class="container">
             <a href="/"><img src="assets/images/logo.png" class="img-fluid" width="150" alt=""></a>
@@ -24,13 +30,14 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fa fa-users"></i> Community
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkCommunity">
+                            <a class="dropdown-item" href="/community">Hotitems</a>
                             <a class="dropdown-item" href="#">Nieuws</a>
                             <a class="dropdown-item" href="#">Ruilwaardes</a>
-                            <a class="dropdown-item" href="#">{{hotelname}} Medewerkers</a>
+                            <a class="dropdown-item" href="/staff">{{hotelname}} Medewerkers</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -40,7 +47,6 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="#">Nieuws</a>
                             <a class="dropdown-item" href="#">Ruilwaardes</a>
-                            <a class="dropdown-item" href="#">{{hotelname}} Medewerkers</a>
                         </div>
                     </li>
                     <li class="nav-item">

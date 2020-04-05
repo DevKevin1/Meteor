@@ -23,4 +23,15 @@ class UserModel extends Model
     {
         return $this->db->table('users')->where('username', $param)->get()->getRow();
     }
+
+    public function getDataByRank($rank, $limit = 10)
+    {
+        return $this->db->table('users')->select('users.id, users.username, users.rank, users.online, users.look, users.motto, permissions.rank_name')->join('permissions', 'permissions.id = users.rank')->where('rank', $rank)->orderBy('rank', 'DESC')->get()->getResultArray();
+    }
+
+    public function getSettings($player_id)
+    {
+        return $this->db->table('users_settings')->where('user_id', $player_id)->get()->getResultArray();
+    }
+
 }
