@@ -1,36 +1,45 @@
-<?php namespace Config;
+<?php 
+namespace Config;
 
 use CodeIgniter\Config\BaseConfig;
 
 class Filters extends BaseConfig
 {
-	// Makes reading things below nicer,
-	// and simpler to change out script that's used.
-	public $aliases = [
-		'csrf'     => \CodeIgniter\Filters\CSRF::class,
-		'toolbar'  => \CodeIgniter\Filters\DebugToolbar::class,
-		'honeypot' => \CodeIgniter\Filters\Honeypot::class,
-	];
+    public $aliases = [
+      'loggedIn' => \App\Filters\loggedIn::class,
+      'isLoggedIn' => \App\Filters\isLoggedIn::class,
+    ];
 
-	// Always applied before every request
-	public $globals = [
-		'before' => [
-			//'honeypot'
-			// 'csrf',
-		],
-		'after'  => [
-			'toolbar',
-			//'honeypot'
-		],
-	];
+    public $globals = [
+        'before' => [
+            'loggedIn' => ['except' => [
+                'auth/*',
+                'register',
+                'register/*',
+                '/assets/javascript/app.js'
+              ]
+            ]
+        ],
+        'after'  =>  [
 
-	// Works on all of a particular HTTP method
-	// (GET, POST, etc) as BEFORE filters only
-	//     like: 'post' => ['CSRF', 'throttle'],
-	public $methods = [];
+        ],
+    ];
 
-	// List filter aliases and any before/after uri patterns
-	// that they should run on, like:
-	//    'isLoggedIn' => ['before' => ['account/*', 'profiles/*']],
-	public $filters = [];
+    public $methods = [];
+
+    public $filters = [
+        'loggedIn' => [
+            'before' => [
+                'auth/logout',
+                'community/*', 
+                'me/*'
+            ]
+        ],
+        'isLoggedIn' => [
+            'before' => [
+                'auth/login',
+                'register'
+            ]
+        ], 
+    ];
 }

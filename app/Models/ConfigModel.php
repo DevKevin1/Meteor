@@ -6,7 +6,8 @@ use Config\Database;
 
 class ConfigModel extends Model
 {
-    private $config_table;
+    protected $table      = 'website_config';
+    protected $returnType = 'array';
 
     public function __construct(...$params)
     {
@@ -15,8 +16,17 @@ class ConfigModel extends Model
         $this->config_table = $this->db->table('website_config');
     }
 
-    public function GetConfig(string $key)
+    public function settings()
     {
-        return $this->config_table->select('value')->where('key', $key)->get()->getRow()->value;
+        $settings = $this->config_table->get()->getResultObject();
+      
+        $inArray = new \stdClass();
+      
+        foreach($settings as $setting) {
+            $key           = $setting->key;
+            $inArray->$key = $setting->value;
+        }
+      
+        return $inArray;
     }
 }

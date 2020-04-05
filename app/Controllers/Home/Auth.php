@@ -1,10 +1,11 @@
 <?php 
-namespace App\Controllers;
+namespace App\Controllers\Home;
 
 use Config\Database;
+
 use App\Models\UserModel;
 
-class Login extends Application
+class Auth extends \App\Controllers\Application
 {
     public function __construct()
     {
@@ -19,7 +20,7 @@ class Login extends Application
             'password'  => 'required|min_length[3]|max_length[14]'
         ])) {
             $this->session->setFlashdata('validation', $this->validator);
-            return redirect()->to('/');
+            return redirect()->to('/auth/login');
         } else {
           
             $username = $this->request->getVar('username', FILTER_SANITIZE_STRING);
@@ -29,21 +30,25 @@ class Login extends Application
             if($user && password_verify($password, $user->password))
             {
                 $this->session->set('user', $user);
-                return redirect()->to('/me');
+                return redirect()->to('/');
             } else {
                 $this->session->setFlashdata('validation', $this->validator);
                 $this->session->setFlashdata('error', 'User credentials wrong');
-                return redirect()->to('/');
+                return redirect()->to('/auth/login');
             }
         }
     }
   
+    public function logout()
+    {
+        $this->session->removeTempdata('user');
+        $this->session->stop();
+      
+        return redirect()->to('/');
+    }
+  
     public function view()
     {
-        if($this->session->get('user')) {
-            return redirect()->to('/me');
-        }
-      
         return $this->render('home/login');
     }
 }

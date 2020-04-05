@@ -24,14 +24,14 @@ class Application extends Controller
     public function __construct()
     {
         $this->twig = new Twig();
+        $this->session = \Config\Services::session();
     }
   
     public function initController(\CodeIgniter\HTTP\RequestInterface $request, \CodeIgniter\HTTP\ResponseInterface $response, \Psr\Log\LoggerInterface $logger)
     {
         parent::initController($request, $response, $logger);
-        $this->session = \Config\Services::session();
     }
-
+ 
     public function render(string $page, $args = [])
     {
         $this->response->setBody($this->twig->Rendered($page, $args));

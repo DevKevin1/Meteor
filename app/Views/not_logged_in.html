@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet"
-          href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
-          integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css">
     <link href="https://fonts.googleapis.com/css?family=Baloo+Da+2&display=swap" rel="stylesheet">
     <link href="/assets/css/index.css?v=57" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
     <link href="https://codeseven.github.io/toastr/build/toastr.min.css" rel="stylesheet" type="text/css" />
+    {% block css %}{% endblock %}
     <title>{{hotelname}} - Homepagina</title>
 </head>
 <body>
@@ -40,18 +39,21 @@
 </footer>
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
-  
+
 <script src="https://codeseven.github.io/toastr/build/toastr.min.js"></script>
 <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"></script>
 <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"></script>
-<script>$(document).ready(function () {
+
+<script>
+$(document).ready(function () {
     $('body').bootstrapMaterialDesign();
     
     toastr.options = {
         closeButton: 1,progressBar: 1,positionClass: 'toast-top-right',preventDuplicates: 1
     };
+     
     
-    {% for error,key in validation.getErrors %}
+    {% for error,key in validation.getErrors|slice(0,1) %}
         toastr.error("{{key|capitalize }}", "{{error|capitalize }}");
     {% endfor %}
     
@@ -63,10 +65,14 @@
         toastr.info("{{flashdata.info}}", "Info");
     {% endif %}
     
-     {% if flashdata.success %}
+    {% if flashdata.success %}
         toastr.success("{{flashdata.success}}", "Success!");
     {% endif %}
-});</script>
+});
+</script>
+  
+{% block javascript %}{% endblock %}
+
 </body>
 </html>
 {% endif %}

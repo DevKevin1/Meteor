@@ -1,17 +1,17 @@
 <?php 
-namespace App\Controllers;
+namespace App\Controllers\Community;
+
 use App\Models\CommunityModel;
 use App\Models\PermissionModel;
 use App\Models\UserModel;
-use Config\Database;
 
-class Community extends Application
+class Community extends \App\Controllers\Application
 {
 
-    public function __construct(...$params)
+    public function __construct()
     {
-        parent::__construct(...$params);
-        $this->db = \Config\Database::connect();
+        parent::__construct();
+      
         $this->userModel = new UserModel();
         $this->communityModel = new CommunityModel();
         $this->permissionModel = new PermissionModel();
@@ -20,7 +20,7 @@ class Community extends Application
     public function view() 
     {
         $getMostPoints = $this->communityModel->orderPoints();
-        return $this->render('community/overview', array('getPointsUsers' => $getMostPoints));
+        return $this->render('community/overview', ['getPointsUsers' => $getMostPoints]);
     }
 
     public function staff()
@@ -34,6 +34,6 @@ class Community extends Application
                 $row->users = $this->userModel->getDataByRank($row->id);
             }
         }
-        return $this->render('community/staff', array('data' => $ranks));
+        return $this->render('community/staff', ['data' => $ranks]);
     }
 }

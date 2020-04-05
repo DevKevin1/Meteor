@@ -21,7 +21,7 @@ class App extends BaseConfig
 	| environments.
 	|
 	*/
-	public $baseURL = 'https://cosmicproject.nl/public/';
+	public $baseURL = 'https://projectmeteor.online/public/';
 
 	/*
 	|--------------------------------------------------------------------------

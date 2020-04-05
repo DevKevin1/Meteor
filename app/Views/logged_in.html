@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet"
-          href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
-          integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css?v=5">
     <link href="https://fonts.googleapis.com/css?family=Baloo+Da+2&display=swap" rel="stylesheet">
     <title>{{hotelname}} - Homepagina</title>
 </head>
@@ -22,7 +20,7 @@
     </svg>
     <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-transparent">
         <div class="container">
-            <a href="/"><img src="assets/images/logo.png" class="img-fluid" width="150" alt=""></a>
+            <a href="/"><img src="/assets/images/logo.png" class="img-fluid" width="150" alt=""></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
                     aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fa fa-bars" aria-hidden="true"></i>
@@ -37,7 +35,7 @@
                             <a class="dropdown-item" href="/community">Hotitems</a>
                             <a class="dropdown-item" href="#">Nieuws</a>
                             <a class="dropdown-item" href="#">Ruilwaardes</a>
-                            <a class="dropdown-item" href="/staff">{{hotelname}} Medewerkers</a>
+                            <a class="dropdown-item" href="/community/staff">{{hotelname}} Medewerkers</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -57,7 +55,7 @@
                             <i class="fa fa-user"></i> {{user.username}}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkCommunity">
-                            <a class="dropdown-item" href="/logout">Logout</a>
+                            <a class="dropdown-item" href="/auth/logout">Logout</a>
                             <a class="dropdown-item" href="#">Settings</a>
                         </div>
                     </li>
@@ -78,7 +76,7 @@
     <div class="footer text-center text-black">
         <div class="row p-0 m-0">
             <div class="col-md-12">
-                <img src="assets/images/logo.png" class="img-fluid" width="150" alt="" style="filter:grayscale(60%)">
+                <img src="/assets/images/logo.png" class="img-fluid" width="150" alt="" style="filter:grayscale(60%)">
                 <p class="footerTitle">
                     &copy; 2020 Copyright: MeteorCMS | All rights reserved
                     <br>
@@ -89,15 +87,10 @@
     </div>
 </footer>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-<script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"
-        integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U"
-        crossorigin="anonymous"></script>
-<script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"
-        integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
-        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"></script>
+<script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"></script>
+  
 <script>$(document).ready(function () {
     $('body').bootstrapMaterialDesign();
 });</script>

@@ -13,15 +13,15 @@ body {
     height: 100%;
 }
 
-h1,h2,h3{
+h1, h2, h3 {
     text-transform: uppercase;
 }
 
-.navbar{
+.navbar {
     box-shadow: none;
 }
 
-.table td{
+.table td {
     border: none;
 }
 
@@ -36,14 +36,14 @@ footer {
 }
 
 .navbar a {
-    font-size: 16px!important;
+    font-size: 16px !important;
 }
 
-.dropdown-menu{
-    margin: 2px!important;
+.dropdown-menu {
+    margin: 2px !important;
 }
 
-.navbar-toggler{
+.navbar-toggler {
     border-radius: 5px;
 }
 
@@ -67,9 +67,9 @@ footer {
     text-shadow: 1px 2px white;
 }
 
-.navShadow{
+.navShadow {
     transition: all 1s ease-out;
-    box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 .divider {
@@ -79,10 +79,42 @@ footer {
 }
 
 .userStatus {
-    height: 20px;
-    width: 20px;
+    height: 23px;
+    width: 23px;
     border-radius: 50%;
-    display: inline-block;
+    z-index: 100;
+    position: absolute;
+    margin-top: -10px;
+    margin-left: 35px;
+    display: block;
+    border: 3px solid white;
+    background-color: #b71c1c;
+}
+
+.staffUserBorder {
+    border: 2px;
+    width: 65px;
+    height: 64px;
+    border-radius: 50%;
+    padding: 10px;
+    background-image: url('../../assets/images/staffBg.png');
+}
+
+.UserBorder {
+    border: 2px;
+    width: 105px;
+    height: 105px;
+    border-radius: 50%;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: url('../../assets/images/staffBg.png');
+    overflow: hidden;
+}
+
+.userAvatar {
+    margin-top: -50px;
+    margin-left: -23px;
 }
 
 .avatar {

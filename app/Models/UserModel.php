@@ -2,7 +2,6 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
-use Config\Database;
 
 class UserModel extends Model
 {
@@ -34,4 +33,21 @@ class UserModel extends Model
         return $this->db->table('users_settings')->where('user_id', $player_id)->get()->getResultArray();
     }
 
+    public function insertUser($username, $password_hash, $email, $avatar, $gender, $ipaddres, $credits)
+    {
+        $data = [
+            'username'        => $username,
+            'password'        => $password_hash,
+            'mail'            => $email,
+            'account_created' => time(),
+            'look'            => $avatar,
+            'credits'         => $credits,
+            'gender'          => $gender,
+            'last_login'      => time(),
+            'ip_register'     => $ipaddres,
+            'ip_current'      => $ipaddres
+        ];
+
+        return $this->db->table('users')->insert($data);
+    }
 }
