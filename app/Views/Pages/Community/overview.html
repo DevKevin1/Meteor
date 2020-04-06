@@ -30,12 +30,12 @@
     <div class="col-md-6">
         <div class="card">
             <div class="card-body">
-                <h3>Most Diamonds</h3>
+                <h3>Most Credits</h3>
                 <hr>
                 <div class="row">
                     <table class="table table-borderless">
                         <tbody>
-                        {% for user in getPointsUsers %}
+                        {% for user in getCreditsUsers %}
                         <tr>
                             <td class="text-center m-0">
                                 <img src="https://www.habbo.com.br/habbo-imaging/avatarimage?figure={{user.look}}&direction=2&head_direction=3&gesture=sml&size=b&headonly=1" alt="" class="img-fluid" height="70" style="margin-top: -20px; margin-left: -15px;">
@@ -44,7 +44,7 @@
                                 <p class="font-weight-bold">{{user.username}}</p>
                             </td>
                             <td class="text-center m-0">
-                               <b>{{user.points}}</b> diamanten
+                               <b>{{user.credits}}</b> credits
                             </td>
                         </tr>
                         {% endfor %}

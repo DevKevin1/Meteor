@@ -3,6 +3,8 @@ namespace App\Controllers\Home;
 
 use App\Models\ConfigModel;
 use App\Models\UserModel;
+use App\Models\UserCurrencyModel;
+use App\Models\UserSettingsModel;
 
 class Registration extends \App\Controllers\Application
 {
@@ -11,6 +13,8 @@ class Registration extends \App\Controllers\Application
         parent::__construct();
         $this->userModel = new UserModel();
         $this->configModel = new ConfigModel();
+        $this->userCurrencyModel = new UserCurrencyModel();
+        $this->userSettingsModel = new UserSettingsModel();
     }
 
     public function store()
@@ -48,11 +52,11 @@ class Registration extends \App\Controllers\Application
             $credits  = $this->configModel->find('start_credits')->value;
             $ipaddres = $this->request->getIPAddress();
           
-            $password_hash = password_hash($password, PASSWORD_BCRYPT);
-
-            $data = [
+            $password = password_hash($password, PASSWORD_BCRYPT);
+            
+            $user_id = $this->userModel->insert([
                 'username'        => $username,
-                'password'        => $password_hash,
+                'password'        => $password,
                 'mail'            => $email,
                 'account_created' => time(),
                 'look'            => $avatar,
@@ -61,12 +65,26 @@ class Registration extends \App\Controllers\Application
                 'last_login'      => time(),
                 'ip_register'     => $ipaddres,
                 'ip_current'      => $ipaddres
-            ];
-            
-            $insertStatus = $this->userModel->insert($data);
-            if($insertStatus)
+            ]);
+          
+            if($user_id)
             {
-                $this->session->set('user', $this->userModel->find($insertStatus));
+                $this->userSettingsModel->insert(['user_id' => $user_id]);
+              
+                /*
+                *   Create user currencys
+                */
+              
+                $currencys = $this->configModel->getCurrencys();
+              
+                if($currencys) {
+                    foreach($currencys as $currency) {
+                        $type = substr($currency->key, strrpos($currency->key, '.') + 1);
+                        $this->userCurrencyModel->insert(['user_id' => $user_id, 'type' => $type, 'amount' => $currency->value]);
+                    }
+                }
+              
+                $this->session->set('user', $this->userModel->find($user_id));
                 return redirect()->to('/me');
             } else {
                 $this->session->setFlashdata('validation', $this->validator);

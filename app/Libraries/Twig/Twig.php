@@ -2,11 +2,13 @@
 namespace App\Libraries\Twig;
 
 use App\Models\ConfigModel;
-use CodeIgniter\Exceptions\PageNotFoundException;
+
 use Twig_Environment;
 use Twig_Error_Loader;
 use Twig_Extension_Debug;
 use Twig_Loader_Filesystem;
+
+use CodeIgniter\Exceptions\PageNotFoundException;
 
 class Twig
 {
@@ -18,12 +20,13 @@ class Twig
         $config_model = new ConfigModel();
 
         $loader = new Twig_Loader_Filesystem(__DIR__ . '/../../Views', $cacheDir);
-        if ($config_model->GetConfig('cache') === 'on') {
+      
+        if ($config_model->find('website.cache')->value === 'on') {
             $dataconfig['cache'] = WRITEPATH . 'cache';
             $dataconfig['auto_reload'] = true;
         }
 
-        if ($config_model->GetConfig('debug') === '1') {
+        if ($config_model->find('website.debug')->value === '1') {
             $dataconfig['debug'] = true;
         }
 

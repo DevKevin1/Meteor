@@ -1,16 +1,22 @@
 <?php
 namespace App\Models;
 
-use CodeIgniter\Model;
-use Config\Database;
-
-class PermissionModel extends Model
+class PermissionModel extends \CodeIgniter\Model
 {
 
+    protected $primaryKey = 'id';
+    protected $table      = 'permissions';
+    protected $returnType = 'object';
+  
     public function __construct(...$params)
     {
         parent::__construct(...$params);
         $this->db = \Config\Database::connect();
+    }
+  
+    public function ranks()
+    {
+        return $this->where('id > ', 2)->select('id, rank_name')->orderBy('id', 'DESC')->get()->getResultObject();
     }
 
     public function getRank($rank)
@@ -25,11 +31,6 @@ class PermissionModel extends Model
 
     public function exists($perm, $rank)
     {
-        if(!in_array($perm, array_column(self::getRank($rank), 'permissions')));
-    }
-
-    public function orderPoints($limit = 10)
-    {
-        return $this->db->table('users')->orderBy('points', 'DESC')->limit($limit)->get()->getResultObject();
+        if(!in_array($perm, array_column($this->getRank($rank), 'permissions')));
     }
 }

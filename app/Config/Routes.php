@@ -36,8 +36,8 @@ $routes->get('/register', 'Home\Registration::view');
 $routes->get('/auth/login', 'Home\Auth::view');
 $routes->get('/auth/logout', 'Home\Auth::logout');
 
-$routes->get('/community', 'Community\Community::view');
-$routes->get('/community/staff', 'Community\Community::staff');
+$routes->get('/community/highscores', 'Community\Highscores::view');
+$routes->get('/community/staff', 'Community\Staff::view');
 
 $routes->post('/register/store', 'Home\Registration::store');
 $routes->post('/auth/login/request', 'Home\Auth::request');
