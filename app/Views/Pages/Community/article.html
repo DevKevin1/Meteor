@@ -23,7 +23,9 @@
                 <div class="row">
                     <ul>
                         <li>
-                            <a href="/news/{{news.id}}">Lorem ipsum</a>
+                            {% for article in allArticles %}
+                            <a href="/news/{{news.id}}">{{article.title}}</a>
+                            {% endfor %}
                         </li>
                     </ul>
                 </div>
@@ -33,10 +35,18 @@
     <div class="col-md-8">
         <div class="card flex-column">
             <div class="card-body">
-                <h4>{{news.title}}</h4>
+                {% for article in allArticles %}
                 <hr>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam possimus, tempore? Aspernatur distinctio dolorem iste laudantium optio pariatur unde voluptate! Accusantium aperiam deserunt doloremque, officiis praesentium quisquam rem saepe voluptate.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aperiam, delectus dignissimos est eveniet ex hic ipsum laborum minus molestias nesciunt quam, quia quo repellendus, repudiandae sequi tempora voluptatem voluptatibus!</p>
+                <div class="newsImg text-white pl-2" style="background-image:url({{article.header}}); height: 120px; width: 100%; border-radius: 4px;">
+                    <div>
+                        <h4 style="padding-top: 3.5vh">{{article.title}}</h4>
+                        <p>{{article.short_story}}</p>
+                    </div>
+                </div>
+                <div class="pt-2">
+                    <span>{{article.full_story}}</span>
+                </div>
+                {% endfor %}
             </div>
         </div>
         <div class="card flex-column mt-3">

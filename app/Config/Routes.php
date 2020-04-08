@@ -38,6 +38,7 @@ $routes->get('/auth/logout', 'Home\Auth::logout');
 
 $routes->get('/community/highscores', 'Community\Highscores::view');
 $routes->get('/community/staff', 'Community\Staff::view');
+$routes->get('/community/news', 'Community\Articles::view');
 
 $routes->post('/register/store', 'Home\Registration::store');
 $routes->post('/auth/login/request', 'Home\Auth::request');
