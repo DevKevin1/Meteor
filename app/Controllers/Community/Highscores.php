@@ -14,7 +14,7 @@ class Highscores extends \App\Controllers\Application
 
     public function view() 
     {
-        $getMostCredits = $this->communityModel->select('username, credits')->findAll();
+        $getMostCredits = $this->communityModel->select('username, credits, look')->findAll();
         return $this->render('community/overview', ['getCreditsUsers' => $getMostCredits]);
     }
 }

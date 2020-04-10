@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css">
     <link rel="stylesheet" href="/assets/css/style.css?v=5">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
     <link href="https://fonts.googleapis.com/css?family=Baloo+Da+2&display=swap" rel="stylesheet">
     <title>{{hotelname}} - Homepagina</title>
 </head>
@@ -26,7 +27,7 @@
                             <i class="fa fa-users"></i> Community
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkCommunity">
-                            <a class="dropdown-item" href="#">Articles</a>
+                            <a class="dropdown-item" href="/community/news">Articles</a>
                             <a class="dropdown-item" href="#">Ruilwaardes</a>
                             <a class="dropdown-item" href="/community/highscores">Highscores</a>
                             <a class="dropdown-item" href="/community/staff">Medewerkers</a>
@@ -67,15 +68,12 @@
 </section>
 
 <footer>
-    <div class="footer text-center text-black mt-3">
-        <div class="row p-0 m-0">
-            <div class="col-md-12">
-                <img src="/assets/images/logo.png" class="img-fluid" width="150" alt="" style="filter:grayscale(60%)">
-                <p class="footerTitle">
-                    &copy; 2020 Copyright: MeteorCMS | All rights reserved
-                    <br>
-                    <span class="footerSecTitle mt-0 pt-0">Made with &hearts; by Raizer and Highrun</span>
-                </p>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <p class="credits pt-4"><a href="/algemenevoorwaarden">Algemene Voorwaarden</a> | <a href="/privacyvoorwaarden">Privacyvoorwaarden</a> </p> </div>
+            <div class="col-md-6 text-right">
+                <p class="credits pt-4 text-muted">Made with &hearts; by Raizer and Highrun</p>
             </div>
         </div>
     </div>

@@ -1,55 +1,108 @@
 {% extends "logged_in.html" %}
 {% block body %}
-<h1 style="margin-top: 8vh;">Community</h1>
+<h1 style="margin-top: 8vh;">Highscores</h1>
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-4 mt-3">
         <div class="card">
             <div class="card-body">
-                <h3>Popular Rooms</h3>
+                <h3>Most Diamonds</h3>
                 <hr>
                 <div class="row">
-                    <table class="table table-borderless">
-                        <tbody>
-                        <tr>
-                            <td class="text-center m-0">
-                                <img src="assets/images/room_icon_1.gif" class="img-fluid" width="30" alt="" style="margin-top: -5px;">
-                            </td>
-                            <td class="text-center m-0">
-                                <p class="font-weight-bold">Mijn Kamer</p>
-                            </td>
-                            <td class="text-center m-0">
-                                Bezoek deze kamer
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
+                    {% for user in getCreditsUsers %}
+                    <div class="col-md-3 pt-2 text-center">
+                        <img src="https://www.habbo.com.br/habbo-imaging/avatarimage?figure={{user.look}}&direction=2&head_direction=3&gesture=sml&size=b&headonly=1" alt="" class="img-fluid" height="70" style="margin-top: -20px; margin-left: -15px;">
+                    </div>
+                    <div class="col-md-5 pt-2">
+                        <p class="font-weight-bold">{{user.username}}</p>
+                    </div>
+                    <div class="col-md-4 pt-2">
+                        <b>{{user.credits}}</b> credits
+                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-4 mt-3">
         <div class="card">
             <div class="card-body">
-                <h3>Most Credits</h3>
+                <h3>Most Diamonds</h3>
                 <hr>
                 <div class="row">
-                    <table class="table table-borderless">
-                        <tbody>
-                        {% for user in getCreditsUsers %}
-                        <tr>
-                            <td class="text-center m-0">
-                                <img src="https://www.habbo.com.br/habbo-imaging/avatarimage?figure={{user.look}}&direction=2&head_direction=3&gesture=sml&size=b&headonly=1" alt="" class="img-fluid" height="70" style="margin-top: -20px; margin-left: -15px;">
-                            </td>
-                            <td class="text-center m-0">
-                                <p class="font-weight-bold">{{user.username}}</p>
-                            </td>
-                            <td class="text-center m-0">
-                               <b>{{user.credits}}</b> credits
-                            </td>
-                        </tr>
-                        {% endfor %}
-                        </tbody>
-                    </table>
+                    {% for user in getCreditsUsers %}
+                    <div class="col-md-3 pt-2 text-center">
+                        <img src="https://www.habbo.com.br/habbo-imaging/avatarimage?figure={{user.look}}&direction=2&head_direction=3&gesture=sml&size=b&headonly=1" alt="" class="img-fluid" height="70" style="margin-top: -20px; margin-left: -15px;">
+                    </div>
+                    <div class="col-md-5 pt-2">
+                        <p class="font-weight-bold">{{user.username}}</p>
+                    </div>
+                    <div class="col-md-4 pt-2">
+                        <b>{{user.credits}}</b> credits
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mt-3">
+        <div class="card">
+            <div class="card-body">
+                <h3>Most Diamonds</h3>
+                <hr>
+                <div class="row">
+                    {% for user in getCreditsUsers %}
+                    <div class="col-md-3 pt-2 text-center">
+                        <img src="https://www.habbo.com.br/habbo-imaging/avatarimage?figure={{user.look}}&direction=2&head_direction=3&gesture=sml&size=b&headonly=1" alt="" class="img-fluid" height="70" style="margin-top: -20px; margin-left: -15px;">
+                    </div>
+                    <div class="col-md-5 pt-2">
+                        <p class="font-weight-bold">{{user.username}}</p>
+                    </div>
+                    <div class="col-md-4 pt-2">
+                        <b>{{user.credits}}</b> credits
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 mt-3">
+        <div class="card">
+            <div class="card-body">
+                <h3>Most Diamonds</h3>
+                <hr>
+                <div class="row">
+                    {% for user in getCreditsUsers %}
+                    <div class="col-md-3 pt-2 text-center">
+                        <img src="https://www.habbo.com.br/habbo-imaging/avatarimage?figure={{user.look}}&direction=2&head_direction=3&gesture=sml&size=b&headonly=1" alt="" class="img-fluid" height="70" style="margin-top: -20px; margin-left: -15px;">
+                    </div>
+                    <div class="col-md-5 pt-2">
+                        <p class="font-weight-bold">{{user.username}}</p>
+                    </div>
+                    <div class="col-md-4 pt-2">
+                        <b>{{user.credits}}</b> credits
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 mt-3">
+        <div class="card">
+            <div class="card-body">
+                <h3>Most Diamonds</h3>
+                <hr>
+                <div class="row">
+                    {% for user in getCreditsUsers %}
+                    <div class="col-md-3 pt-2 text-center">
+                        <img src="https://www.habbo.com.br/habbo-imaging/avatarimage?figure={{user.look}}&direction=2&head_direction=3&gesture=sml&size=b&headonly=1" alt="" class="img-fluid" height="70" style="margin-top: -20px; margin-left: -15px;">
+                    </div>
+                    <div class="col-md-5 pt-2">
+                        <p class="font-weight-bold">{{user.username}}</p>
+                    </div>
+                    <div class="col-md-4 pt-2">
+                        <b>{{user.credits}}</b> credits
+                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>

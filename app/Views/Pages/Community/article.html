@@ -1,14 +1,5 @@
 {% extends "logged_in.html" %}
 {% block body %}
-<style>
-    li a {
-        color: black;
-    }
-
-    li a:hover {
-        color: black;
-    }
-</style>
 <div class="row">
     <div class="col-md-12">
         <h1 class="mt-5">Nieuws</h1>
@@ -36,7 +27,6 @@
         <div class="card flex-column">
             <div class="card-body">
                 {% for article in allArticles %}
-                <hr>
                 <div class="newsImg text-white pl-2" style="background-image:url({{article.header}}); height: 120px; width: 100%; border-radius: 4px;">
                     <div>
                         <h4 style="padding-top: 3.5vh">{{article.title}}</h4>
