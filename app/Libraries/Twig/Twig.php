@@ -35,6 +35,12 @@ class Twig
         $this->environment = new Twig_Environment($loader, $dataconfig);
         $this->environment->addExtension(new TwigExtentions());
 
+        $this->environment->addFunction(
+            new \Twig\TwigFunction('getenv', function ($key) {
+                return getenv($key);
+            })
+        );
+      
         if ($config_model->settings('debug') === '1') {
             $this->environment->addExtension(new Twig_Extension_Debug());
         }

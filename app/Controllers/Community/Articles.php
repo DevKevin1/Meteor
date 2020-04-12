@@ -15,8 +15,7 @@ class Articles extends \App\Controllers\Application
 
     public function view()
     {
-        $getArticles = $this->articlesModel->allItems();
-//        print_r($getArticles);
+        $getArticles = $this->articlesModel->findAll(getenv('cosmic.news.limit'));
         return $this->render('community/article', ['allArticles' => $getArticles]);
     }
 }

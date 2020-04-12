@@ -1,0 +1,59 @@
+#flash-container,body{
+	width:100%;
+	height:100%;
+	margin:0
+}
+
+body {
+	background-color:#000
+}
+
+#client-ui {
+	height:100%
+}
+
+#flash-container {
+	position:absolute;
+	left:0;
+	right:0;
+	top:0;
+	bottom:0;
+	overflow:hidden
+}
+
+#banner {
+	position: absolute;
+	margin: auto;
+	background: #fff;
+	width: 710px;
+	height: 300px;
+	left: 0;
+	right: 0;
+	top: 70px;
+	z-index: 1041;
+}
+
+#button {
+	position: absolute;
+	font-size: 20px;
+	width: 20px;
+	text-align: center;
+	font-weight: bold;
+	color: white;
+	background: #ff1839;
+	z-index: 10;
+	cursor: pointer;
+}
+
+#banner1, #banner2 {
+	position: absolute;
+	height: 250px;
+	width: 300px;
+	margin-top: 30px;
+	left: 3%;
+	z-index: 9;
+}
+
+#banner2 {
+	margin-left: 52%;
+}
