@@ -29,7 +29,7 @@ class Application extends Controller
         $this->session = \Config\Services::session();
       
         if ($this->session->has('user')) { 
-          $this->user = (new UserModel())->find(1); 
+          $this->user = (new UserModel())->find($this->session->get('user')->id); 
         }
     }
   

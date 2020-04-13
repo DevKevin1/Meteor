@@ -19,7 +19,7 @@ class TwigExtentions extends Twig_Extension implements \Twig_Extension_GlobalsIn
     public function getGlobals()
     {
         return [
-            'hotelname' => getenv('cosmic.sitename'),
+            'hotelname' => getenv('meteor.hotelname'),
             'validation' => $this->session->getFlashdata('validation'),
             'flashdata' => $this->session->getFlashdata(),
             'base_url' => str_replace("/public", "/", base_url())

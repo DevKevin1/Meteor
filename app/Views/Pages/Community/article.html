@@ -11,46 +11,22 @@
             <div class="card-body">
                 <h4>Nieuwsberichten</h4>
                 <hr>
-                <div class="row">
-                    <ul>
-                        <li>
-                            {% for article in allArticles %}
-                            <a href="/news/{{news.id}}">{{article.title}}</a>
-                            {% endfor %}
-                        </li>
-                    </ul>
-                </div>
+                {% for item in allArticles %}
+                {% endfor %}
             </div>
         </div>
     </div>
     <div class="col-md-8">
         <div class="card flex-column">
             <div class="card-body">
-                {% for article in allArticles %}
-                <div class="newsImg text-white pl-2" style="background-image:url({{article.header}}); height: 120px; width: 100%; border-radius: 4px;">
+                <div class="newsImg text-white pl-2" style="background-image:url({{item.header}}); height: 120px; width: 100%; border-radius: 4px;">
                     <div>
-                        <h4 style="padding-top: 3.5vh">{{article.title}}</h4>
-                        <p>{{article.short_story}}</p>
+                        <h4 style="padding-top: 3.5vh">{{item.title}}</h4>
+                        <p>{{item.short_story}}</p>
                     </div>
                 </div>
                 <div class="pt-2">
-                    <span>{{article.full_story}}</span>
-                </div>
-                {% endfor %}
-            </div>
-        </div>
-        <div class="card flex-column mt-3">
-            <div class="card-body">
-                <h4>Reacties</h4>
-                <hr>
-                <p>Plaats hieronder uw bericht.</p>
-                <div class="row">
-                    <div class="col-md-9">
-                        <textarea name="reaction" class="form-control" id="" cols="30" rows="2"></textarea>
-                    </div>
-                    <div class="col-md-3">
-                        <button class="btn btn-outline-primary">Plaats reactie</button>
-                    </div>
+                    <span>{{item.full_story}}</span>
                 </div>
             </div>
         </div>

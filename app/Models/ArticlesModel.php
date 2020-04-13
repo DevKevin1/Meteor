@@ -12,5 +12,6 @@ class ArticlesModel extends \CodeIgniter\Model
     {
         parent::__construct(...$params);
         $this->db = \Config\Database::connect();
+        $this->orderBy('id', 'desc');
     }
 }

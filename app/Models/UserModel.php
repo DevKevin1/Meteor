@@ -18,15 +18,26 @@ class UserModel extends Model
         $this->db = \Config\Database::connect();
     }
   
-    public function getUserByUsername($param)
+    public function getUserByUsername(string $username, string $param = null)
     {
-        return $this->where('username', $param)->get()->getRow();
+        return $this->select($param ?? '*')->where('username', $username)->get()->getRow();
+    }
+  
+    public function getUserById(int $user_id, string $param = null)
+    {
+        return $this->select($param ?? '*')->where('id', $user_id)->get()->getRow();
     }
 
-    public function getDataByRank($rank, $limit = 10)
+    public function getDataByRank(int $rank, int $limit = 10)
     {
         $this->select('users.id, users.username, users.rank, users.online, users.look, users.motto, permissions.rank_name');
         $this->join('permissions', 'permissions.id = users.rank');
         return $this->where('rank', $rank)->orderBy('rank', 'DESC')->get()->getResultArray();
+    }
+  
+    public function setPassword(string $pass)
+    {
+        $this->attributes['password'] = password_hash($pass, PASSWORD_BCRYPT);
+        return $this;
     }
 }

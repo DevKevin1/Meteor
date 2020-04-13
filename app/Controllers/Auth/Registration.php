@@ -1,5 +1,5 @@
 <?php 
-namespace App\Controllers\Home;
+namespace App\Controllers\Auth;
 
 use App\Models\ConfigModel;
 use App\Models\UserModel;
@@ -52,7 +52,7 @@ class Registration extends \App\Controllers\Application
             $credits  = $this->configModel->find('start_credits')->value;
             $ipaddres = $this->request->getIPAddress();
           
-            $password = password_hash($password, PASSWORD_BCRYPT);
+            $password = $this->userModel->setPassword($password);
             
             $user_id = $this->userModel->insert([
                 'username'        => $username,
@@ -91,11 +91,12 @@ class Registration extends \App\Controllers\Application
                 $this->session->setFlashdata('error', 'User credentials wrong');
             }
         }
-        return $this->render('home/registration');
+          
+        $this->view();
     }
 
     public function view() 
     {
-        return $this->render('home/registration');
+        return $this->render('auth/registration');
     }
 }

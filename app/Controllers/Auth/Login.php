@@ -1,11 +1,11 @@
 <?php 
-namespace App\Controllers\Home;
+namespace App\Controllers\Auth;
 
 use Config\Database;
 
 use App\Models\UserModel;
 
-class Auth extends \App\Controllers\Application
+class Login extends \App\Controllers\Application
 {
     public function __construct()
     {
@@ -49,6 +49,6 @@ class Auth extends \App\Controllers\Application
   
     public function view()
     {
-        return $this->render('home/login');
+        return $this->render('auth/login');
     }
 }

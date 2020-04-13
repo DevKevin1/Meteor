@@ -22,7 +22,9 @@
                                                 <img src="assets/images/arrows.png" class="img-fluid pt-3 animated fadeInLeft infinite" width="30" alt="">
                                             </div>
                                             <div class="col-md-5 text-center">
-                                                <img src="assets/images/hotel.png" class="img-fluid" width="45" alt="">
+                                                <a href="/hotel" target="_blank">
+                                                    <img src="assets/images/hotel.png" class="img-fluid" width="45" alt="Go to {{hotelname}}">
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -53,12 +55,14 @@
                         <hr>
                         <div class="row text-left">
                             <div class="container">
+                                {% for article in articles %}
                                 <div class="newsItem text-left mt-2"
-                                     style="background-image: url('https://theallseeingeye.leet.ws/uploads/articles/512e7e3a2ee6445e6c44c55875a7cf620dba61611583769332.png'); background-repeat: no-repeat; background-size: cover; height: 150px; width: 100%; border-radius: 2px;">
+                                     style="background-image: url({{article.header}}); background-repeat: no-repeat; background-size: cover; height: 150px; width: 100%; border-radius: 2px;">
                                     <h3 class="text-left text-white pl-4"
-                                        style="padding-top: 3.5vh; text-shadow: 2px 2px black;">Kamer van de Week #123</h3>
-                                    <button class="btn btn-outline-light ml-4">Lees meer...</button>
+                                        style="padding-top: 3.5vh; text-shadow: 2px 2px black;">{{article.title}}</h3>
+                                    <a href="/community/article/{{article.id}}/{{article.slug}}" class="btn btn-outline-light ml-4">Lees meer...</a>
                                 </div>
+                                {% endfor %}
                             </div>
                         </div>
                     </div>
@@ -108,7 +112,7 @@
                             <hr>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <input class="form-control p-2" placeholder="https://{{hotelurl}}/invite/{{userInviteId}}" type="text" name="redeem" readonly>
+                                    <input class="form-control p-2" placeholder="{{base_url}}invite/{{user.username}}" type="text" name="redeem" readonly>
                                 </div>
                                 <div class="col-md-12 mt-2">
                                     <button class="btn btn-outline-warning w-100"><i class="fa fa-copy"></i> Clipboard</button>

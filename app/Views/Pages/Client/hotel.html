@@ -12,33 +12,33 @@
         var flashvars = {
               "client.allow.cross.domain": "1",
               "client.notify.cross.domain": "0",
-              "connection.info.host": "{{getenv('cosmic.swf.client.ip')}}",
-              "connection.info.port": "{{getenv('cosmic.swf.client.port')}}",
+              "connection.info.host": "{{getenv('meteor.swf.client.ip')}}",
+              "connection.info.port": "{{getenv('meteor.swf.client.port')}}",
               "site.url": '{{base_url}}',
               "url.prefix": '{{base_url}}',
               "client.reload.url": "{{base_url}}/hotel",
               "client.fatal.error.url": "{{base_url}}hotel",
               "client.connection.failed.url": "{{base_url}}hotel",
-              "external.override.texts.txt": "{{getenv('cosmic.swf.domain')}}/{{getenv('cosmic.swf.override.external.flash.texts')}}",
-              "external.texts.txt": "{{getenv('cosmic.swf.domain')}}/{{getenv('cosmic.swf.external.texts')}}",
-              "external.variables.txt": "{{getenv('cosmic.swf.domain')}}/{{getenv('cosmic.swf.external.variables')}}",
-              "external.figurepartlist.txt": "{{getenv('cosmic.swf.domain')}}/{{getenv('cosmic.swf.figuredata')}}",
-              "external.figurepartlist.txt": "{{getenv('cosmic.swf.domain')}}/{{getenv('cosmic.swf.figuremap')}}",
-              "productdata.load.url": "{{getenv('cosmic.swf.domain')}}/{{getenv('cosmic.swf.productdata')}}",
-              "furnidata.load.url": "{{getenv('cosmic.swf.domain')}}/{{getenv('cosmic.swf.furnidata')}}",
+              "external.override.texts.txt": "{{getenv('meteor.swf.domain')}}/{{getenv('meteor.swf.override.external.flash.texts')}}",
+              "external.texts.txt": "{{getenv('meteor.swf.domain')}}/{{getenv('meteor.swf.external.texts')}}",
+              "external.variables.txt": "{{getenv('meteor.swf.domain')}}/{{getenv('meteor.swf.external.variables')}}",
+              "external.figurepartlist.txt": "{{getenv('meteor.swf.domain')}}/{{getenv('meteor.swf.figuredata')}}",
+              "external.figurepartlist.txt": "{{getenv('meteor.swf.domain')}}/{{getenv('meteor.swf.figuremap')}}",
+              "productdata.load.url": "{{getenv('meteor.swf.domain')}}/{{getenv('meteor.swf.productdata')}}",
+              "furnidata.load.url": "{{getenv('meteor.swf.domain')}}/{{getenv('meteor.swf.furnidata')}}",
               "sso.ticket": "{{user.auth_ticket}}",
               "account_id": "{{user.id}}",
               "ads.domain": "",
               "processlog.enabled": "1",
               "client.starting": "Frank brengt je koffers naar je hotelkamer!",
-              "flash.client.url": "{{getenv('cosmic.swf.domain')}}/{{getenv('cosmic.swf.external.base')}}/",
+              "flash.client.url": "{{getenv('meteor.swf.domain')}}/{{getenv('meteor.swf.external.base')}}/",
               "flash.client.origin": "popup"
         };
     </script>
 <script type="text/javascript" src="/assets/javascript/hotelapi.js"></script>
 <script type="text/javascript">
         var params = {
-            "base": "{{getenv('cosmic.swf.domain')}}/{{getenv('cosmic.swf.external.base')}}/",
+            "base": "{{getenv('meteor.swf.domain')}}/{{getenv('meteor.swf.external.base')}}/",
             "allowScriptAccess": "always",
             "menu": "false",
             "wmode": "opaque"
@@ -55,7 +55,7 @@
                 window.location = signoutUrl;
         };
 
-        swfobject.embedSWF('{{getenv('cosmic.swf.domain')}}/{{getenv('cosmic.swf.external.base')}}/{{getenv('cosmic.swf.loader')}}', 'flash-container', '100%', '100%', '11.1.0', 'https://www.leet.ws/assets/flash/expressInstall.swf', flashvars, params, null, null);
+        swfobject.embedSWF('{{getenv('meteor.swf.domain')}}/{{getenv('meteor.swf.external.base')}}/{{getenv('meteor.swf.loader')}}', 'flash-container', '100%', '100%', '11.1.0', 'https://www.leet.ws/assets/flash/expressInstall.swf', flashvars, params, null, null);
     </script>
 <script>
 	function requestFlashPermission()
