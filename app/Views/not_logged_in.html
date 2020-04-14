@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css">
     <link href="https://fonts.googleapis.com/css?family=Baloo+Da+2&display=swap" rel="stylesheet">
-    <link href="/assets/css/index.css?v=57" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/style.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
     <link href="https://codeseven.github.io/toastr/build/toastr.min.css" rel="stylesheet" type="text/css" />
     {% block css %}{% endblock %}
@@ -14,12 +14,6 @@
 <body>
 
 <header>
-    <svg class="onlyDesktop" style="position: absolute; top: 0; right: 0;" width="800" height="950"
-         viewBox="0 300 10 800" xmlns="http://www.w3.org/2000/svg">
-        <g transform="translate(300, 300)">
-            <path d="M103.4,-104.4C125.2,-81.6,128.1,-40.8,141.2,13.1C154.3,66.9,177.5,133.9,155.7,180.2C133.9,226.5,66.9,252.3,13.3,239C-40.3,225.6,-80.6,173.3,-122.8,126.9C-164.9,80.6,-209,40.3,-218.9,-9.9C-228.8,-60.1,-204.5,-120.2,-162.4,-143C-120.2,-165.9,-60.1,-151.4,-9.7,-141.8C40.8,-132.1,81.6,-127.2,103.4,-104.4Z" fill="rgba(10, 10, 10, 0.59)" stroke="none" stroke-width="0"></path>
-        </g>
-    </svg>
     <div class="container">
         <img src="/assets/images/logo.png" class="img-fluid pt-3 animated fadeInLeft" width="200" alt="">
     </div>
@@ -31,10 +25,24 @@
     </div>
 </section>
 
-<footer>
-    <div class="footer text-center text-black" style="position: absolute; bottom: 0; width: 100%;">
-        <img src="/assets/images/logo.png" class="img-fluid" width="200" alt="" style="filter:grayscale(60%)">
-        <p class="footerTitle">&copy; 2020 Copyright: {{hotelname}} | All rights reserved </p>
+<footer class="font-small blue pt-4">
+    <div class="container text-center text-md-left">
+        <div class="row">
+            <div class="col-md-6 mt-md-0">
+                <h5 class="text-uppercase">MeteorCMS</h5>
+                <p class="text-muted">Made with &hearts; by Raizer & Highrun</p>
+            </div>
+            <div class="col-md-6 text-center pt-1">
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="#!">Algemene voorwaarden</a>
+                    </li>
+                    <li>
+                        <a href="#!">Privacyvoorwaarden</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 </footer>
 
@@ -47,28 +55,29 @@
 <script>
 $(document).ready(function () {
     $('body').bootstrapMaterialDesign();
-    
+  
     toastr.options = {
         closeButton: 1,progressBar: 1,positionClass: 'toast-top-right',preventDuplicates: 1
     };
-     
-    
+
     {% for error,key in validation.getErrors|slice(0,1) %}
         toastr.error("{{key|capitalize }}", "{{error|capitalize }}");
     {% endfor %}
-    
+
     {% if flashdata.error %}
         toastr.error("{{flashdata.error}}", "Oops..");
     {% endif %}
-    
+
     {% if flashdata.info %}
         toastr.info("{{flashdata.info}}", "Info");
     {% endif %}
-    
+
     {% if flashdata.success %}
         toastr.success("{{flashdata.success}}", "Success!");
     {% endif %}
-});
+});    
+  
+
 </script>
   
 {% block javascript %}{% endblock %}

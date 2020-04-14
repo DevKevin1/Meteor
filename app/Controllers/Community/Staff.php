@@ -1,18 +1,14 @@
 <?php 
 namespace App\Controllers\Community;
 
-use App\Models\CommunityModel;
-use App\Models\PermissionModel;
-use App\Models\UserModel;
-
 class Staff extends \App\Controllers\Application
 {
 
     public function __construct()
     {
         parent::__construct();
-        $this->userModel = new UserModel();
-        $this->permissionModel = new PermissionModel();
+        $this->userModel = model('UserModel');
+        $this->permissionModel = model('PermissionModel');
     }
 
     public function view()

@@ -41,6 +41,12 @@ class Twig
             })
         );
       
+        $this->environment->addFunction(
+            new \Twig\TwigFunction('old', function ($key) {
+                return old($key);
+            })
+        );
+      
         if ($config_model->settings('debug') === '1') {
             $this->environment->addExtension(new Twig_Extension_Debug());
         }

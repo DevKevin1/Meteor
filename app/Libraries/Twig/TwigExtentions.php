@@ -25,4 +25,5 @@ class TwigExtentions extends Twig_Extension implements \Twig_Extension_GlobalsIn
             'base_url' => str_replace("/public", "/", base_url())
         ];
     }
+  
 }

@@ -1,20 +1,17 @@
 <?php 
 namespace App\Controllers\Auth;
 
-use Config\Database;
-
-use App\Models\UserModel;
-
 class Login extends \App\Controllers\Application
 {
     public function __construct()
     {
         parent::__construct();
-        $this->userModel = new UserModel();
     }
   
     public function request()
     {
+         $this->userModel = model('UserModel');
+      
         if (!$this->validate([
             'username'  => 'required|min_length[3]|max_length[14]',
             'password'  => 'required|min_length[3]|max_length[14]'

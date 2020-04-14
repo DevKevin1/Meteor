@@ -10,29 +10,39 @@
 <script type="text/javascript" src="/assets/javascript/swfobject.js?v=475"></script>
 <script type="text/javascript">
         var flashvars = {
-              "client.allow.cross.domain": "1",
-              "client.notify.cross.domain": "0",
-              "connection.info.host": "{{getenv('meteor.swf.client.ip')}}",
-              "connection.info.port": "{{getenv('meteor.swf.client.port')}}",
-              "site.url": '{{base_url}}',
-              "url.prefix": '{{base_url}}',
-              "client.reload.url": "{{base_url}}/hotel",
-              "client.fatal.error.url": "{{base_url}}hotel",
-              "client.connection.failed.url": "{{base_url}}hotel",
-              "external.override.texts.txt": "{{getenv('meteor.swf.domain')}}/{{getenv('meteor.swf.override.external.flash.texts')}}",
-              "external.texts.txt": "{{getenv('meteor.swf.domain')}}/{{getenv('meteor.swf.external.texts')}}",
-              "external.variables.txt": "{{getenv('meteor.swf.domain')}}/{{getenv('meteor.swf.external.variables')}}",
-              "external.figurepartlist.txt": "{{getenv('meteor.swf.domain')}}/{{getenv('meteor.swf.figuredata')}}",
-              "external.figurepartlist.txt": "{{getenv('meteor.swf.domain')}}/{{getenv('meteor.swf.figuremap')}}",
-              "productdata.load.url": "{{getenv('meteor.swf.domain')}}/{{getenv('meteor.swf.productdata')}}",
-              "furnidata.load.url": "{{getenv('meteor.swf.domain')}}/{{getenv('meteor.swf.furnidata')}}",
-              "sso.ticket": "{{user.auth_ticket}}",
-              "account_id": "{{user.id}}",
-              "ads.domain": "",
-              "processlog.enabled": "1",
-              "client.starting": "Frank brengt je koffers naar je hotelkamer!",
-              "flash.client.url": "{{getenv('meteor.swf.domain')}}/{{getenv('meteor.swf.external.base')}}/",
-              "flash.client.origin": "popup"
+            "connection.info.host": "151.80.54.177",
+            "connection.info.port": "3000",
+            "client.reload.url": "{{base_url}}auth/logout",
+            "client.fatal.error.url": "http://localhost/client/error",
+            "client.connection.failed.url": "http://localhost/client/error",
+            "logout.url": "{{base_url}}me",
+            "logout.disconnect.url": "{{base_url}}me",               
+            "url.prefix":"{{getenv('meteor.swf.domain')}}",
+            "client.starting":"Please wait! {{hotelname}} is starting up.",
+            "has.identity":"1",
+            "client.starting.revolving":"Welcome to NGH!",
+            "spaweb":"1",
+            "client.notify.cross.domain":"1",
+            "unique_habbo_id":"{{unique_id}}",
+            "nux.lobbies.enabled":"true",
+            "flash.client.origin":"popup",
+            "processlog.enabled":"0",
+            "sso.ticket": "{{auth_token}}",
+            "productdata.load.url":"{{getenv('meteor.swf.domain')}}/{{getenv('meteor.swf.productdata')}}",
+            "furnidata.load.url":"{{getenv('meteor.swf.domain')}}/{{getenv('meteor.swf.furnidata')}}",
+            "external.texts.txt":"{{getenv('meteor.swf.domain')}}/{{getenv('meteor.swf.external.texts')}}",
+            "external.variables.txt":"{{getenv('meteor.swf.domain')}}/{{getenv('meteor.swf.external.variables')}}",
+            "external.figurepartlist.txt":"{{getenv('meteor.swf.domain')}}/{{getenv('meteor.swf.figuredata')}}",
+            "external.override.texts.txt":"{{getenv('meteor.swf.domain')}}/{{getenv('meteor.swf.override.external.flash.texts')}}",
+            "external.override.variables.txt":"{{getenv('meteor.swf.domain')}}/{{getenv('meteor.swf.override.external.variables')}}",
+            "flash.client.url":"{{getenv('meteor.swf.domain')}}/{{getenv('meteor.swf.external.base')}}/",
+          
+            {% if not nux_active %}
+            "new.user.onboarding.hc.flow.enabled": "true", 
+            "new.user.flow.enabled": "true",
+            "new.user.flow.roomTypes": "10,11,12",
+            "new.user.flow.name": "{{user.username}}",
+            {% endif %}
         };
     </script>
 <script type="text/javascript" src="/assets/javascript/hotelapi.js"></script>
@@ -53,6 +63,57 @@
                 window.close();
             } else
                 window.location = signoutUrl;
+        };
+  
+        window.NewUserReception = {};
+
+        window.NewUserReception.checkName = name => {
+          console.log('Checking name: "' + name + '"...');
+          // call to api
+          void window.HabboFlashClient.flashInterface.newUserReceptionCheckNameResponse(
+            name,
+            "OK", // Can be "OK", "INVALID_NAME", "NAME_IN_USE", "NAME_CHANGE_NOT_ALLOWED"
+            { resultType: "VALIDATION_NAME_OK" },
+            [] // unused
+          );
+
+          // result type can be any of the following strings
+          // "VALIDATION_NAME_OK"
+          // "VALIDATION_ERROR_NAME_TOO_LONG"
+          // "VALIDATION_ERROR_NAME_TOO_SHORT"
+          // "VALIDATION_ERROR_ILLEGAL_CHARS"
+          // "VALIDATION_ERROR_ILLEGAL_WORDS"
+        };
+
+        window.NewUserReception.claimName = name => {
+          console.log('Claiming name: "' + name + '"...');
+
+          // call to api
+          window.HabboFlashClient.flashInterface.newUserReceptionClaimNameResponse(
+            "OK", // same as above
+            { resultType: "VALIDATION_NAME_OK" }, // same as above
+            []
+          );
+        };
+
+        window.NewUserReception.saveOutfit = (look, gender) => {
+          console.log('Saving outfit: "' + look + '" - "' + gender + '"...');
+          // call to api
+          void window.HabboFlashClient.flashInterface.newUserReceptionSaveOutfitResponse(
+            look,
+            gender,
+            "OK"
+          );
+        };
+
+        window.NewUserReception.chooseRoom = index => {
+          console.log("Choose room", index);
+          // call to api
+          void window.HabboFlashClient.flashInterface.newUserReceptionChooseRoomResponse();
+        };
+
+        window.NewUserReception.logStep = n => {
+          console.log("nux", "log", n);
         };
 
         swfobject.embedSWF('{{getenv('meteor.swf.domain')}}/{{getenv('meteor.swf.external.base')}}/{{getenv('meteor.swf.loader')}}', 'flash-container', '100%', '100%', '11.1.0', 'https://www.leet.ws/assets/flash/expressInstall.swf', flashvars, params, null, null);

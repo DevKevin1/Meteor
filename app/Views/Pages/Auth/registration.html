@@ -13,15 +13,15 @@
                <div class="col-md-12">
                   <form action="/register/store" method="POST">
                      <label for="username">{{hotelname}}naam</label>
-                     <input type="text" name="username" placeholder="{{hotelname}}naam..." value="{{flashdata.username}}" id="username" class="form-control">
+                     <input type="text" name="username" placeholder="{{hotelname}}naam..." value="{{old('username')}}" id="username" class="form-control">
                      <label for="password" id="password" class="pt-4">Uw wachtwoord</label>
                      <input type="password" placeholder="Wachtwoord..." name="password" class="form-control">
                      <label for="repeatpassword" class="pt-4">Herhaal uw wachtwoord</label>
                      <input type="password" placeholder="Wachtwoord herhalen..." name="repeatpassword" class="form-control">
                      <label for="email" class="pt-4">Emailadres</label>
-                     <input type="email" placeholder="Emailadres..." name="email" value="{{flashdata.email}}" id="email" class="form-control">
+                     <input type="email" placeholder="Emailadres..." name="email" value="{{old('email')}}" id="email" class="form-control">
                      <label for="date" class="pt-4">Geboortedatum</label>
-                     <input type="date" placeholder="Emailadres..." name="date" value="{{flashdata.date}}" id="date" class="form-control">
+                     <input type="date" placeholder="Emailadres..." name="date" value="{{old('data')}}" id="date" class="form-control">
                      <label for="gender" id="repeatpassword" class="pt-4">Selecteer uw geslacht</label>
                      <select class="form-control display" name="gender" id="gender">
                         <option value="M" class="male nav-selected" data-gender="M">Man</option>
