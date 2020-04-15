@@ -66,7 +66,6 @@ class Registration extends \App\Controllers\Application
                 'mail'            => $email,
                 'password'        => $password,
                 'account_created' => time(),
-                'look'            => $avatar,
                 'motto'           => $motto,
                 'credits'         => $credits,
                 'gender'          => $gender,

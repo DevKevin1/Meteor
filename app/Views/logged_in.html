@@ -46,12 +46,13 @@
                         <a class="nav-link" href="#"><i class="fa fa-gavel fa-flip-horizontal"></i>  Housekeeping</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownUsers" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fa fa-user"></i> {{user.username}}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkCommunity">
                             <a class="dropdown-item" href="/auth/logout">Logout</a>
                             <a class="dropdown-item" href="#">Settings</a>
+                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#switchUser">Switch from user</a>
                         </div>
                     </li>
                 </ul>
@@ -87,6 +88,9 @@
         </div>
     </div>
 </footer>
+
+{% include "modals.html" %}
+
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"></script>
 <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"></script>
@@ -117,6 +121,10 @@
             // console.log('Removed');
         }
     };
+
+    $('#switchUser').click(function(){
+
+    });
 
     $('.navbar-toggler').click(function() {
         var clicks = $(this).data('clicks');
