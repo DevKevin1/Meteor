@@ -45,6 +45,9 @@ $routes->get('/community/article/(:num)/(:any)', 'Community\Articles::item/$1');
 $routes->post('/register/store', 'Auth\Registration::store');
 $routes->post('/auth/login/request', 'Auth\Login::request');
 
+$routes->post('api/newuser/name/check', 'Auth\Nux::checkName',
+);
+
 /**
  * --------------------------------------------------------------------
  * Additional Routing

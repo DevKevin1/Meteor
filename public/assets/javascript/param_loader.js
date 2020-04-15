@@ -1,0 +1,1 @@
+const createParam=t=>{const r=document.createElement("param");for(const e in t)t.hasOwnProperty(e)&&r.setAttribute(e,t[e]);return r},createFlashVars=t=>{const r=[];for(const e in t)if(t.hasOwnProperty(e)){const n=t[e];r.push(`${e}=${n}`)}return r.join("&")};

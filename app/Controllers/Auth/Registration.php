@@ -11,12 +11,11 @@ class Registration extends \App\Controllers\Application
     public function store()
     {
         $this->userModel = model('UserModel');
-        $this->userModel = model('ConfigModel');
+        $this->configModel = model('ConfigModel');
         $this->userCurrencyModel = model('UserCurrencyModel');
         $this->userSettingsModel = model('UserSettingsModel');
       
         if (!$this->validate([
-            'username'          => 'required|min_length[2]|max_length[14]|pattern[[a-zA-Z0-9-=?!@:.]+]|is_unique[users.username]',
             'password'          => 'required|min_length[6]|max_length[20]',
             'repeatpassword'    => 'required|matches[password]',
             'email'             => 'required|is_unique[users.mail]|valid_email',
@@ -36,17 +35,32 @@ class Registration extends \App\Controllers\Application
             *   Sanitize variables and store in userModel  
             */
           
-            $username = $this->request->getVar('username', FILTER_SANITIZE_STRING);
             $password = $this->request->getVar('password', FILTER_SANITIZE_STRING);
             $avatar   = $this->request->getVar('habbo-avatar', FILTER_SANITIZE_STRING);
             $email    = $this->request->getVar('email', FILTER_SANITIZE_STRING);
             $gender   = $this->request->getVar('gender', FILTER_SANITIZE_STRING);
-            $motto  = $this->configModel->find('default.motto')->value;
+            $motto  =   $this->configModel->find('default.motto')->value;
             $credits  = $this->configModel->find('default.credits')->value;
             $ipaddres = $this->request->getIPAddress();
           
             $password = $password = password_hash($password, PASSWORD_BCRYPT);
-            
+           
+            /*
+            *   Generate random username from mail
+            */
+          
+            $username = substr($email, 0, strrpos($email, '@'));
+            $username = preg_replace('/[^A-Za-z0-9. -]/', '', $username);
+            $username = substr($username .= uniqid(), 0, 11);
+          
+            if($this->userModel->where('username', $username)->first()) {
+                $username = substr(uniqid(), 0, 11);
+            }   
+          
+            /*
+            *   Store in Database 
+            */
+          
             $user_id = $this->userModel->insert([
                 'username'        => $username,
                 'mail'            => $email,
@@ -79,7 +93,7 @@ class Registration extends \App\Controllers\Application
                 }
               
                 $this->session->set('user', $this->userModel->find($user_id));
-                return redirect()->to('/hotel');
+                return redirect()->to('/me');
             } else {
                 $this->session->setFlashdata('validation', $this->validator);
                 $this->session->setFlashdata('error', 'User credentials wrong');

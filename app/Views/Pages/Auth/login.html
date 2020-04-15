@@ -9,9 +9,9 @@
                         <div class="row text-left">
                             <div class="col-md-12">
                                 <form action="/auth/login/request" method="post" id="login">
-                                    <label for="username">Uw gebruikersnaam</label>
-                                    <input type="text" name="username" id="username" class="form-control {% if validation.geterror('username') %}error{% endif %}"
-                                           placeholder="Vul hier uw gebruikersnaam in...">
+                                    <label for="username">Uw mailadres</label>
+                                    <input type="text" name="mail" id="mail" class="form-control {% if validation.geterror('mail') %}error{% endif %}"
+                                           placeholder="Vul hier uw mailadres in...">
                                     <label for="password" id="password" class="pt-4">Uw wachtwoord</label>
                                     <input type="password" name="password" class="form-control {% if validation.geterror('password') %}error{% endif %}"
                                            placeholder="Vul hier uw wachtwoord in...">

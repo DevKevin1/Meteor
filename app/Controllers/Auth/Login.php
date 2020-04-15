@@ -13,17 +13,17 @@ class Login extends \App\Controllers\Application
          $this->userModel = model('UserModel');
       
         if (!$this->validate([
-            'username'  => 'required|min_length[3]|max_length[14]',
+            'mail'  => 'required|min_length[6]',
             'password'  => 'required|min_length[3]|max_length[14]'
         ])) {
             $this->session->setFlashdata('validation', $this->validator);
             return redirect()->to('/auth/login');
         } else {
           
-            $username = $this->request->getVar('username', FILTER_SANITIZE_STRING);
+            $mail = $this->request->getVar('mail', FILTER_SANITIZE_STRING);
             $password = $this->request->getVar('password', FILTER_SANITIZE_STRING);
           
-            $user = $this->userModel->getUserByUsername($username);
+            $user = $this->userModel->where('mail', $mail)->first();
             if($user && password_verify($password, $user->password))
             {
                 $this->session->set('user', $user);
