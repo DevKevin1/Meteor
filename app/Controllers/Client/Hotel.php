@@ -18,7 +18,7 @@ class Hotel extends \App\Controllers\Application
           
         $auth_token   = sha1(substr(md5(rand(-10000, 10000)), 0, 6).substr(md5(rand(-20, 10000)), 0, 10).$player_id).'-'.md5($player_id);
         $unique_id    = getenv('meteor.hotelname') . '-' . substr(md5(uniqid()), 0, -20);
-        $nux_active   = $this->userSettingsModel->find($this->user->id)->nux;
+        $nux_active   = $this->userSettingsModel->where('user_id', $this->user->id)->first()->nux;
 
         $this->userModel->update($this->user->id, ['auth_ticket' => $auth_token]);
       
