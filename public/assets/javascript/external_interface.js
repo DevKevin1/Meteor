@@ -1,6 +1,4 @@
 var ClientLoader = function() {
-
-    var handleData = [];
   
     return {
         init: function() {
@@ -31,9 +29,8 @@ var ClientLoader = function() {
                 window.FlashExternalInterface = {};
                 window.FlashExternalInterface.logDebug = args => console.log("[DEBUG]", args);
                 window.FlashExternalInterface.logLoginStep = function(args) {
-                    console.log(args)
-                    if (args === "client.init.start") {
-                        //window.LoadingClient[0].style.display = "none";
+                      if (args == "client.init.swf.loaded") {
+                        window.LoadingClient[0].style.display = "none";
                     }
                 };
 
@@ -60,30 +57,26 @@ var ClientLoader = function() {
 
                 window.NewUserReception.claimName = name => {
                     console.log('Claiming name: "' + name + '"...');
-                    // call to api
-                    window.HabboFlashClient.flashInterface.newUserReceptionClaimNameResponse(
-                        "OK", // same as above
-                        {
-                            resultType: "VALIDATION_NAME_OK"
-                        }, // same as above
-                        []
-                    );
+
+                    ClientLoader.call("/api/newuser/select/name", {name:name}, function (result) {
+                        void window.HabboFlashClient.flashInterface.newUserReceptionClaimNameResponse(result.code, result.validationResult, []);
+                    });
                 };
 
                 window.NewUserReception.saveOutfit = (look, gender) => {
                     console.log('Saving outfit: "' + look + '" - "' + gender + '"...');
-                    // call to api
-                    void window.HabboFlashClient.flashInterface.newUserReceptionSaveOutfitResponse(
-                        look,
-                        gender,
-                        "OK"
-                    );
+                  
+                    ClientLoader.call("/api/newuser/save/figure", {look:look, gender:gender}, function (result) {
+                        void window.HabboFlashClient.flashInterface.newUserReceptionSaveOutfitResponse(look, gender, result.code);
+                    });
                 };
 
                 window.NewUserReception.chooseRoom = index => {
                     console.log("Choose room", index);
-                    // call to api
-                    void window.HabboFlashClient.flashInterface.newUserReceptionChooseRoomResponse();
+                  
+                    ClientLoader.call("/api/newuser/save/room", {roomIndex:index}, function (result) {
+                        void window.HabboFlashClient.flashInterface.newUserReceptionChooseRoomResponse();
+                    });
                 };
 
                 window.NewUserReception.logStep = function(args) {
@@ -99,10 +92,8 @@ var ClientLoader = function() {
         call: function(url, data, callback) {
             $.ajax({
                 url: url,
-                contentType: "application/json",
-                dataType: "json",
                 type: "POST",
-                data: JSON.stringify(data)
+                data: data
             }).done(function(result) {
                 if (typeof callback === "function")
                     callback(result);

@@ -45,8 +45,10 @@ $routes->get('/community/article/(:num)/(:any)', 'Community\Articles::item/$1');
 $routes->post('/register/store', 'Auth\Registration::store');
 $routes->post('/auth/login/request', 'Auth\Login::request');
 
-$routes->post('api/newuser/name/check', 'Auth\Nux::checkName',
-);
+$routes->post('api/newuser/name/check', 'Auth\Nux::checkName');
+$routes->post('api/newuser/select/name', 'Auth\Nux::selectName');
+$routes->post('api/newuser/save/figure', 'Auth\Nux::saveFigure');
+$routes->post('api/newuser/save/room', 'Auth\Nux::saveRoom');
 
 /**
  * --------------------------------------------------------------------

@@ -9,7 +9,7 @@ class UserModel extends Model
     protected $table      = 'users';
     protected $primaryKey = 'id';
     protected $returnType = 'object';
-
+  
     protected $allowedFields = ['id','username','password','real_name','mail','account_created','account_day_of_birth','last_login','online','pincode','last_online','motto','look','gender','rank','credits','pixels','points','auth_ticket','ip_register','ip_current','machine_id', 'secret_key'];
 
 
@@ -35,10 +35,5 @@ class UserModel extends Model
         $this->join('permissions', 'permissions.id = users.rank');
         return $this->where('rank', $rank)->orderBy('rank', 'DESC')->get()->getResultArray();
     }
-  
-    public function setPassword(string $pass)
-    {
-        $this->attributes['password'] = password_hash($pass, PASSWORD_BCRYPT);
-        return $this;
-    }
+
 }

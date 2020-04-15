@@ -1,7 +1,7 @@
 <?php
-namespace App\Models;
+namespace App\Validation;
 
-class NuxModel extends \CodeIgniter\Model
+class Nux extends \CodeIgniter\Model
 {
     public $validationResult = null;
     public $suggestions = [];
