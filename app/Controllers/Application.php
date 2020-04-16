@@ -29,7 +29,8 @@ class Application extends Controller
         $this->session = \Config\Services::session();
       
         if ($this->session->has('user')) { 
-          $this->user = (new UserModel())->find($this->session->get('user')->id); 
+            $this->accounts = (new UserModel())->where('mail', $this->session->get('user')->mail)->findAll(); 
+            $this->user = (new UserModel())->find($this->session->get('user')->id);
         }
     }
   
@@ -40,8 +41,9 @@ class Application extends Controller
  
     public function render(string $page, $args = [])
     {
+        $args['accounts'] = ($this->accounts) ? $this->accounts : null;
         $args['user'] = ($this->user) ? $this->user : null;
-      
+
         $this->response->setBody($this->twig->Rendered($page, $args));
         $this->response->send();
 

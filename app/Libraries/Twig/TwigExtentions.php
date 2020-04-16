@@ -1,8 +1,6 @@
 <?php
 namespace App\Libraries\Twig;
 
-use App\Models\ConfigModel;
-
 use Config\Services;
 
 use Twig_Extension;

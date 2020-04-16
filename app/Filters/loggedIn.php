@@ -11,7 +11,7 @@ class loggedIn implements FilterInterface
     public function before(RequestInterface $request)
     {
         $session = Services::session();
-      
+    
         if ($session->has('user')) { 
            if ($request->uri->getPath() == '/') {
                 return redirect()->to('/me');

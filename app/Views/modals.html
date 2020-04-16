@@ -1,6 +1,7 @@
 <div class="modal fade" id="switchUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
+            <form action="/auth/login/switch" method="POST" id="switchForm">
             <div class="modal-header">
                 <div class="row">
                     <div class="col-md-12">
@@ -16,23 +17,27 @@
             </div>
             <div class="modal-body">
                 <div class="row">
+                    {% for account in accounts %}
                     <div class="col-md-4">
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-12 switchUser{% if account.id == user.id %} active{% endif %}" data-assigned-id="{{account.id}}">
                                 <div class="UserBorder">
-                                    <img class="userAvatar" src="https://www.habbo.com.br/habbo-imaging/avatarimage?figure=sh-290-81.hr-145-41.lg-270-82.hd-200-1.ch-255-66direction=2&amp;head_direction=3&amp;gesture=sml&amp;size=l" alt="">
+                                    <img class="userAvatar" src="https://www.habbo.com.br/habbo-imaging/avatarimage?figure={{account.look}}&direction=2&amp;head_direction=3&amp;gesture=sml&amp;size=l" alt="">
                                 </div>
                             </div>
                             <div class="col-md-12 text-center">
-                                <h6 class="pt-2">{{user.username}}</h6>
+                                <h6 class="pt-2">{{account.username}}</h6>
                             </div>
                         </div>
                     </div>
+                    {% endfor %}
+                    {% if getenv('meteor.max.accounts') != accounts|length %}
+                    {% for i in range(getenv('meteor.max.accounts') - 1, accounts|length) %}
                     <div class="col-md-4">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="UserBorderGrey">
-                                    <img src="assets/images/add.png" style="width: 84px;" alt="">
+                                    <a href="/auth/account/create"><img src="assets/images/add.png" style="width: 84px;" alt=""></a>
                                 </div>
                             </div>
                             <div class="col-md-12 text-center">
@@ -40,23 +45,15 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="UserBorderGrey">
-                                    <img src="assets/images/add.png" style="width: 84px;" alt="">
-                                </div>
-                            </div>
-                            <div class="col-md-12 text-center">
-                                <h6 class="pt-2">Add account</h6>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
+                    {% endif %}
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-success">Switch account</button>
+                <input type="hidden" name="switch">
+                <button type="submit" form="switchForm" class="btn btn-success">Switch account</button>
             </div>
+          </form>
         </div>
     </div>
 </div>

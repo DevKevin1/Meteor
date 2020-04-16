@@ -8,6 +8,7 @@ class Home extends \App\Controllers\Application
         parent::__construct();
         $this->userCurrency = model('UserCurrencyModel');
         $this->articlesModel = model('ArticlesModel');
+        $this->userModel = model('UserModel');
     }
   
     public function me()

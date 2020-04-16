@@ -34,6 +34,7 @@ $routes->get('/me', 'Home\Home::me');
 $routes->get('/register', 'Auth\Registration::view');
 $routes->get('/hotel', 'Client\Hotel::view');
 
+$routes->get('/auth/account/create', 'Auth\Registration::account');
 $routes->get('/auth/login', 'Auth\Login::view');
 $routes->get('/auth/logout', 'Auth\Login::logout');
 
@@ -42,8 +43,10 @@ $routes->get('/community/staff', 'Community\Staff::view');
 $routes->get('/community/news', 'Community\Articles::view');
 $routes->get('/community/article/(:num)/(:any)', 'Community\Articles::item/$1');
 
+$routes->post('/register/account/create', 'Auth\Registration::create');
 $routes->post('/register/store', 'Auth\Registration::store');
 $routes->post('/auth/login/request', 'Auth\Login::request');
+$routes->post('/auth/login/switch', 'Auth\Login::switch');
 
 $routes->post('api/newuser/name/check', 'Auth\Nux::checkName');
 $routes->post('api/newuser/select/name', 'Auth\Nux::selectName');

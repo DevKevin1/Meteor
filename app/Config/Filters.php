@@ -15,8 +15,7 @@ class Filters extends BaseConfig
             'loggedIn' => ['except' => [
                 'auth/*',
                 'register',
-                'register/*',
-                '/assets/javascript/app.js'
+                'register/*'
               ]
             ]
         ],
@@ -31,6 +30,7 @@ class Filters extends BaseConfig
         'loggedIn' => [
             'before' => [
                 'auth/logout',
+                'auth/account/create',
                 'community/*', 
                 'me/*'
             ]

@@ -160,6 +160,10 @@ footer a:hover{
     filter: grayscale(100%);
 }
 
+#switchUser .active {
+    border: 3px solid #4caf5099;;
+    padding: 5px;
+}
 
 .userAvatar {
     margin-top: -50px;

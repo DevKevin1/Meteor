@@ -10,7 +10,7 @@ class UserSettingsModel extends Model
     protected $table      = 'users_settings';
     protected $returnType = 'object';
   
-    protected $allowedFields = ['user_id'];
+    protected $allowedFields = ['user_id', 'active'];
 
     public function __construct(...$params)
     {
