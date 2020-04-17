@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/assets/css/style.css?v=14">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
     <link href="https://fonts.googleapis.com/css?family=Baloo+Da+2&display=swap" rel="stylesheet">
+    <link href="/assets/css/avatargenerate.css?v={{date().timestamp}}" rel="stylesheet" />
     {% block css %}{% endblock %}
     <title>{{hotelname}} - Homepagina</title>
 </head>
@@ -90,11 +91,12 @@
     </div>
 </footer>
 
-{% include "modals.html" %}
+{% block modals %}{% endblock %}
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"></script>
 <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"></script>
+<script src="/assets/javascript/avatargenerate.js?v={{date().timestamp}}" type="text/javascript"></script>
 {% block javascript %}{% endblock %}
 <script>
     $(document).ready(function () {
