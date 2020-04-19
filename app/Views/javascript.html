@@ -1,0 +1,36 @@
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<script src="https://codeseven.github.io/toastr/build/toastr.min.js"></script>
+<script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"></script>
+<script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"></script>
+<script>
+    $(document).ready(function () {
+        $('body').bootstrapMaterialDesign();
+        updateHeight();
+
+        toastr.options = {
+            closeButton: 1,progressBar: 1,positionClass: 'toast-top-right',preventDuplicates: 1
+        };
+
+        {% for error,key in validation.getErrors|slice(0,1) %}
+        toastr.error("{{key|capitalize }}", "{{error|capitalize }}");
+        {% endfor %}
+
+        {% if flashdata.error %}
+        toastr.error("{{flashdata.error}}", "Oops..");
+        {% endif %}
+
+        {% if flashdata.info %}
+        toastr.info("{{flashdata.info}}", "Info");
+        {% endif %}
+
+        {% if flashdata.success %}
+        toastr.success("{{flashdata.success}}", "Success!");
+        {% endif %}
+    });
+
+    function updateHeight() {
+        const Height = $('footer').height();
+        $('body').css('margin-bottom', Height + 180 + 'px')
+    }
+</script>

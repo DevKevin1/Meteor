@@ -8,14 +8,20 @@
     <link href="/assets/css/style.css?v=52" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
     <link href="https://codeseven.github.io/toastr/build/toastr.min.css" rel="stylesheet" type="text/css" />
+    <style>
+        html {
+            position: relative;
+            min-height: 100%;
+        }
 
+    </style>
     <title>{{hotelname}} - Homepagina</title>
 </head>
 <body>
 
 <header>
     <div class="container">
-        <img src="/assets/images/logo.png" class="img-fluid pt-3 animated fadeInLeft" width="200" alt="">
+        <a href="/"><img src="/assets/images/logo.png" class="img-fluid pt-3 animated fadeInLeft" width="200" alt=""></a>
     </div>
 </header>
 
@@ -46,39 +52,8 @@
     </div>
 </footer>
 
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
-
-<script src="https://codeseven.github.io/toastr/build/toastr.min.js"></script>
-<script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"></script>
-<script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"></script>
-
-<script>
-$(document).ready(function () {
-    $('body').bootstrapMaterialDesign();
-  
-    toastr.options = {
-        closeButton: 1,progressBar: 1,positionClass: 'toast-top-right',preventDuplicates: 1
-    };
-
-    {% for error,key in validation.getErrors|slice(0,1) %}
-        toastr.error("{{key|capitalize }}", "{{error|capitalize }}");
-    {% endfor %}
-
-    {% if flashdata.error %}
-        toastr.error("{{flashdata.error}}", "Oops..");
-    {% endif %}
-
-    {% if flashdata.info %}
-        toastr.info("{{flashdata.info}}", "Info");
-    {% endif %}
-
-    {% if flashdata.success %}
-        toastr.success("{{flashdata.success}}", "Success!");
-    {% endif %}
-});    
-  
-
-</script>
+{% block javascript %}{% endblock %}
+{% include "javascript.html" %}
 
 </body>
 </html>
