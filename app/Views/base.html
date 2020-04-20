@@ -15,6 +15,7 @@
 <body>
 
 <header>
+    {% if user %}
     <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-transparent">
         <div class="container">
             <a href="/"><img src="/assets/images/logo.png" class="img-fluid" width="150" alt=""></a>
@@ -61,7 +62,13 @@
             </div>
         </div>
     </nav>
+    {% endif %}
+  
+    {% if not user %}
+    <div class="container">
+      <a href="/"><img src="/assets/images/logo.png" class="img-fluid" width="150" alt=""></a>
     </div>
+    {% endif %}
 </header>
 
 <section>
@@ -93,63 +100,37 @@
 
 {% block modals %}{% endblock %}
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://codeseven.github.io/toastr/build/toastr.min.js"></script>
 <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"></script>
 <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"></script>
-<script src="/assets/javascript/avatargenerate.js?v={{date().timestamp}}" type="text/javascript"></script>
-{% block javascript %}{% endblock %}
+<script src="/assets/javascript/avatargenerate.js" type="text/javascript"></script>
+<script src="/assets/javascript/app.js" type="text/javascript"></script>
+  
 <script>
     $(document).ready(function () {
         $('body').bootstrapMaterialDesign();
-        updateHeight();
-    });
+        toastr.options = {
+            closeButton: 1,progressBar: 1,positionClass: 'toast-top-right',preventDuplicates: 1
+        };
 
-    function updateHeight() {
-        const Height = $('footer').height();
-        $('body').css('margin-bottom', Height + 100 + 'px')
-    }
+        {% for error,key in validation.getErrors|slice(0,1) %}
+        toastr.error("{{key|capitalize }}", "{{error|capitalize }}");
+        {% endfor %}
 
-    window.onscroll = function() {
-        if(window.scrollY >= 5){
-            $('.navbar').addClass('bg-white');
-            $('.navbar').addClass('easyTouchNav');
-            $('.navbar').addClass('navShadow');
-            $('.navbar').addClass('shadow');
-            $('.navbar').removeClass('bg-transparent');
-            // console.log('Added');
-        } else if(window.scrollY < 5){
-            $('.navbar').removeClass('bg-white');
-            $('.navbar').removeClass('shadow');
-            $('.navbar').addClass('easyTouchNav');
-            $('.navbar').removeClass('navShadow');
-            // console.log('Removed');
-        }
-    };
+        {% if flashdata.error %}
+        toastr.error("{{flashdata.error}}", "Oops..");
+        {% endif %}
 
-    $('.switchUser').click(function() {
-        var id = $(this).data('assigned-id');
-        $("[name=switch]").val(id);
-      
-        $(".switchUser").removeClass("active");
-        $('.switchUser[data-assigned-id=' + id +']').addClass("active");
-    });
+        {% if flashdata.info %}
+        toastr.info("{{flashdata.info}}", "Info");
+        {% endif %}
 
-    $('.navbar-toggler').click(function() {
-        var clicks = $(this).data('clicks');
-        $('.navbar').removeClass('bg-transparent');
-        if (clicks) {
-            $('.navbar').removeClass('shadow');
-            $('.navbar').addClass('easyTouchNav');
-            $('.navbar').removeClass('bg-transparent');
-            $('.navbar').removeClass('navShadow');
-        } else {
-            $('.navbar').addClass('bg-white');
-            $('.navbar').addClass('easyTouchNav');
-            $('.navbar').addClass('navShadow');
-            $('.navbar').addClass('shadow');
-        }
-        $(this).data("clicks", !clicks);
+        {% if flashdata.success %}
+        toastr.success("{{flashdata.success}}", "Success!");
+        {% endif %}
     });
 </script>
+
 </body>
 </html>
