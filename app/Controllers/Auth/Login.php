@@ -77,6 +77,9 @@ class Login extends \App\Controllers\Application
   
     public function view()
     {
-        return $this->render('auth/login');
+        $this->articlesModel = model('ArticlesModel');
+      
+        $getArticles = $this->articlesModel->findAll(getenv('meteor.home.news.limit'));
+        return $this->render('auth/login', ['articles' => $getArticles]);
     }
 }

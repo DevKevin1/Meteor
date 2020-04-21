@@ -13,10 +13,10 @@ class Hotel extends \App\Controllers\Application
 
     public function view()
     { 
-        $this->userModel = model('UserModel')->find($this->user->id);
+        $this->userModel = model('UserModel');
         $this->userSettingsModel = model('UserSettingsModel')->find($this->user->id);
           
-        if($this->userModel->online == 1) {
+        if($this->userModel->find('email', $this->user->id)->online == 1) {
             return redirect()->back()->with('error', 'Je bent al ingelogd!');
         }
       

@@ -14,8 +14,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Baloo+Da+2&display=swap">
   
     <link rel="stylesheet" href="/assets/css/avatargenerate.css">
-    <link rel="stylesheet" href="/assets/css/style.css?v=15">
-
+    <link rel="stylesheet" href="/assets/css/style.css?v=16">
+  
     {% block css %}{% endblock %}
     <title>{{hotelname}} - Homepagina</title>
 </head>
@@ -112,10 +112,13 @@
 <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"></script>
 <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"></script>
 <script src="/assets/javascript/avatargenerate.js" type="text/javascript"></script>
-<script src="/assets/javascript/app.js" type="text/javascript"></script>
+<script src="/assets/javascript/app.js?v={{date().timestamp}}" type="text/javascript"></script>
   
+{% if flashdata %}
 <script>
+  
     $(document).ready(function () {
+      
         {% if flashdata.modal %}
             $('#{{flashdata.modal}}').modal('show');
         {% endif %}
@@ -137,6 +140,7 @@
         {% endif %}
     });
 </script>
-
+{% endif %}
+  
 </body>
 </html>

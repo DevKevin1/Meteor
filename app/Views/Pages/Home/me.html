@@ -1,129 +1,138 @@
-{% extends "base.html" %}
-{% block body %}  
-        <div class="row">
-            <div class="col-md-7 mt-5">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row text-left">
-                            <div class="col-12 col-md-4 text-center">
-                                <div class="UserBorder mt-4">
-                                    <img class="userAvatar" src="https://www.habbo.com.br/habbo-imaging/avatarimage?figure={{user.look}}direction=2&amp;head_direction=3&amp;gesture=sml&amp;size=l" alt="">
-                                </div>
+{% extends "base.html" %} {% block body %}
+<div class="row">
+    <div class="col-md-7 mt-5">
+        <div class="card">
+            <div class="card-body">
+                <div class="row text-left">
+                    <div class="col-12 col-md-4 text-center">
+                        <div class="UserBorder mt-4">
+                            <img class="userAvatar" src="https://www.habbo.com.br/habbo-imaging/avatarimage?figure={{user.look}}direction=2&amp;head_direction=3&amp;gesture=sml&amp;size=l" alt="">
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-8 mt-4">
+                        <div class="row">
+                            <div class="col-7 col-md-6">
+                                <h5>Hey, <b>{{user.username}}</b>!</h5>
+                                <h6>{{user.motto}}</h6>
                             </div>
-                            <div class="col-12 col-md-8 mt-4">
+                            <div class="col-5 col-md-6">
                                 <div class="row">
-                                    <div class="col-7 col-md-6">
-                                        <h5>Hey, <b>{{user.username}}</b>!</h5>
-                                        <h6>{{user.motto}}</h6>
+                                    <div class="col-6 col-md-7 pt-1 text-right">
+                                        <img src="assets/images/arrows.png" class="img-fluid pt-2 animated fadeInLeft infinite" width="30" alt="">
                                     </div>
-                                    <div class="col-5 col-md-6">
-                                        <div class="row">
-                                            <div class="col-6 col-md-7 pt-1 text-right">
-                                                <img src="assets/images/arrows.png" class="img-fluid pt-2 animated fadeInLeft infinite" width="30" alt="">
-                                            </div>
-                                            <div class="col-6 col-md-5 text-center">
-                                                <a href="/hotel" target="_blank">
-                                                    <img src="assets/images/hotel.png" class="img-fluid" width="45" alt="Go to {{hotelname}}">
-                                                </a>
-                                            </div>
-                                        </div>
+                                    <div class="col-6 col-md-5 text-center">
+                                        <a href="/hotel" target="_blank">
+                                            <img src="assets/images/hotel.png" class="img-fluid" width="45" alt="Go to {{hotelname}}">
+                                        </a>
                                     </div>
-                                </div>
-                                <hr>
-                                <div class="row font-weight-bold text-center">
-                                    <div class="col-3 col-md-3 currency">
-                                        <p class="m-0 p-0">{{user.credits}}</p>
-                                        <img src="assets/images/currency/credits.png" alt="">
-                                    </div>
-                                    {% for currency in currencys %}
-                                    <div class="col-3 col-md-3 currency">
-                                        <p class="m-0 p-0">{{currency.amount}}</p>
-                                        <img src="assets/images/currency/{{currency.currency}}.png" alt="">
-                                    </div>
-                                    {% endfor %}
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="card mt-3">
-                    <div class="card-body">
-                        <h4>{{hotelname}} Nieuws</h4>
                         <hr>
-                        <div class="row text-left">
-                            <div class="container">
-                                {% for article in articles %}
-                                <div class="newsItem text-left mt-2"
-                                     style="background-image: url({{article.header}}); background-repeat: no-repeat; background-size: cover; height: 150px; width: 100%; border-radius: 2px;">
-                                    <h3 class="text-left text-white pl-4"
-                                        style="padding-top: 3.5vh; text-shadow: 2px 2px black;">{{article.title}}</h3>
-                                    <a href="/community/article/{{article.id}}/{{article.slug}}" class="btn btn-outline-light ml-4">Lees meer...</a>
-                                </div>
-                                {% endfor %}
+                        <div class="row font-weight-bold text-center">
+                            <div class="col-3 col-md-3 currency">
+                                <p class="m-0 p-0">{{user.credits}}</p>
+                                <img src="assets/images/currency/credits.png" alt="">
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-5">
-                <div class="col-md-12 mt-5 p-0 flex-column">
-                    <div class="card flex-column">
-                        <div class="card-body">
-                            <h4>{{hotelname}}FM</h4>
-                            <hr>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="newsItem text-left mt-2">
-                                        <audio controls>
-                                            <source src="https://21253.live.streamtheworld.com/WEB16_AAC.aac" type="audio/mpeg">
-                                            Your browser does not support the audio element.
-                                        </audio>
-                                    </div>
-                                </div>
+                            {% for currency in currencys %}
+                            <div class="col-3 col-md-3 currency">
+                                <p class="m-0 p-0">{{currency.amount}}</p>
+                                <img src="assets/images/currency/{{currency.currency}}.png" alt="">
                             </div>
-                        </div>
-                    </div>
-                    <div class="card flex-column mt-3">
-                        <div class="card-body">
-                            <h4>{{hotelname}} groepen</h4>
-                            <hr>
-                            <div class="newsItem text-left mt-2">
-                                <div class="row text-center">
-                                    <div class="col-md-4">
-                                        <img src="assets/images/groep.png" class="img-fluid" width="50" alt="">
-                                        <span>{{group1}}</span>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <img src="assets/images/groep.png" class="img-fluid" width="50" alt="">
-                                        <span>{{group2}}</span>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <img src="assets/images/groep.png" class="img-fluid" width="50" alt="">
-                                        <span>{{group3}}</span>
-                                    </div>
-                                </div>
-                                <button class="btn btn-outline-success w-100 mt-2">Bekijk alle groepen</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card flex-column mt-3">
-                        <div class="card-body">
-                            <h4>Invite and redeem</h4>
-                            <hr>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <input class="form-control p-2" placeholder="{{base_url}}/invite/{{user.username}}" type="text" name="redeem" readonly>
-                                </div>
-                                <div class="col-md-12 mt-2">
-                                    <button class="btn btn-outline-warning w-100"><i class="fa fa-copy"></i> Clipboard</button>
-                                </div>
-                            </div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="card mt-3">
+            <div class="card-body">
+                <h4>{{hotelname}} Nieuws</h4>
+                <hr>
+                <div class="row text-left">
+                    <div class="container">
 
-{% block modals %} {% include "modals.html" %} {% endblock %}
+                        <div class="slideshow-container">
+                            {% for article in articles %}
+                            <div class="newsItem newsSlides inFade" style="background-image: url({{article.header}}); background-repeat: no-repeat; background-size: cover; height:220px; width: 100%; border-radius: 2px;">
+                                <div class="numbertext">{{loop.index}} / {{articles|length}}</div>
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <h3 class="text-left text-white pl-4" style="padding-top: 3.5vh; text-shadow: 2px 2px black;">{{article.title}}</h3>
+                                        <span class="align-bottom">
+                                            <a href="/community/article/{{article.id}}/{{article.slug}}" class="btn btn-outline-light ml-4">Lees meer...</a>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
 
-{% endblock %}
+                            {% endfor %}
+
+                            <a class="prev" onclick="siteLoader.nextSlide(-1)">&#10094;</a>
+                            <a class="next" onclick="siteLoader.nextSlide(1)">&#10095;</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-5">
+        <div class="col-md-12 mt-5 p-0 flex-column">
+            <div class="card flex-column">
+                <div class="card-body">
+                    <h4>{{hotelname}}FM</h4>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="newsItem text-left mt-2">
+                                <audio controls>
+                                    <source src="https://21253.live.streamtheworld.com/WEB16_AAC.aac" type="audio/mpeg"> Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card flex-column mt-3">
+                <div class="card-body">
+                    <h4>{{hotelname}} groepen</h4>
+                    <hr>
+                    <div class="newsItem text-left mt-2">
+                        <div class="row text-center">
+                            <div class="col-md-4">
+                                <img src="assets/images/groep.png" class="img-fluid" width="50" alt="">
+                                <span>{{group1}}</span>
+                            </div>
+                            <div class="col-md-4">
+                                <img src="assets/images/groep.png" class="img-fluid" width="50" alt="">
+                                <span>{{group2}}</span>
+                            </div>
+                            <div class="col-md-4">
+                                <img src="assets/images/groep.png" class="img-fluid" width="50" alt="">
+                                <span>{{group3}}</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline-success w-100 mt-2">Bekijk alle groepen</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card flex-column mt-3">
+                <div class="card-body">
+                    <h4>Invite and redeem</h4>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input class="form-control p-2" placeholder="{{base_url}}/invite/{{user.username}}" type="text" name="redeem" readonly>
+                        </div>
+                        <div class="col-md-12 mt-2">
+                            <button class="btn btn-outline-warning w-100"><i class="fa fa-copy"></i> Clipboard</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% block modals %} {% include "modals.html" %} {% endblock %} {% endblock %}
