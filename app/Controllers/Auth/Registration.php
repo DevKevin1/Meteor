@@ -120,7 +120,7 @@ class Registration extends \App\Controllers\Application
             *   Store and return the users entered values   
             */
           
-            return redirect()->to('/auth/account/create')->withInput();
+            return redirect()->back()->with('modal', 'newUser');
         } else {
           
             /*

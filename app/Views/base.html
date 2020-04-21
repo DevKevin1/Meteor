@@ -3,12 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <meta name="description" content="Virtual world for young people where you can make and meet friends. Meet and make friends, chat with others, create your own avatar, design your own room for free and much more ...">
+    <meta name="keywords" content="cosmic, Cosmic, virtual, world, social network, free, community, avatar, chat, online, teen, roleplaying, join, social, groups, forums, safe, play, games, online, friends, teens, rare, rare meubi, collect, make, collect, contact, meubi, furniture, pets, furnish room, share, expression, badges, hangout, music, celebrity, VIP visits, celebs, mmo, mmorpg">
+  
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css">
-    <link rel="stylesheet" href="/assets/css/style.css?v=14">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Baloo+Da+2&display=swap" rel="stylesheet">
-    <link href="/assets/css/avatargenerate.css?v={{date().timestamp}}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://codeseven.github.io/toastr/build/toastr.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Baloo+Da+2&display=swap">
+  
+    <link rel="stylesheet" href="/assets/css/avatargenerate.css">
+    <link rel="stylesheet" href="/assets/css/style.css?v=15">
+
     {% block css %}{% endblock %}
     <title>{{hotelname}} - Homepagina</title>
 </head>
@@ -109,11 +116,10 @@
   
 <script>
     $(document).ready(function () {
-        $('body').bootstrapMaterialDesign();
-        toastr.options = {
-            closeButton: 1,progressBar: 1,positionClass: 'toast-top-right',preventDuplicates: 1
-        };
-
+        {% if flashdata.modal %}
+            $('#{{flashdata.modal}}').modal('show');
+        {% endif %}
+      
         {% for error,key in validation.getErrors|slice(0,1) %}
         toastr.error("{{key|capitalize }}", "{{error|capitalize }}");
         {% endfor %}

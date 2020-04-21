@@ -28,6 +28,7 @@ class Login extends \App\Controllers\Application
                 
                 $this->userModel->set(['ip_current' => $this->request->getIPAddress()])->where('id', $user->id)->update();
               
+                $this->session->setFlashdata('success', 'Welkom terug, ' . $user->username);
                 $this->session->set('user', $user);
                 return redirect()->to('/');
             } else {

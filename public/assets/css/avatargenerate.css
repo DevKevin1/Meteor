@@ -5,7 +5,6 @@
 .builder-viewport {
     width: 490px;
     min-height: 442px;
-    box-shadow: 0 5px 0 rgba( 0, 0, 0, .4 );
     border-radius: 0 0 8px 8px;
     -webkit-border-radius: 0 0 8px 8px;
     -moz-border-radius: 0 0 8px 8px;

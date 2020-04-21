@@ -69,7 +69,7 @@
 <div class="modal fade" id="newUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content modal-xl">
-            <form action="auth/account/create" method="POST" id="addOtherUser">
+            <form action="register/account/create" method="POST" id="addOtherUser">
                 <div class="modal-header">
                 <div class="modal-body">
                     <div class="row">
@@ -82,10 +82,6 @@
                                        value="{{flashdata.username}}" id="username" class="form-control">
                                 <label for="gender" id="repeatpassword" class="pt-4">Selecteer uw
                                     geslacht</label>
-                                <select class="form-control display" name="gender" id="gender">
-                                    <option value="M" class="male nav-selected" data-gender="M">Man</option>
-                                    <option value="F" class="female" data-gender="F">Woman</option>
-                                </select>
                                 <div class="row mt-3">
                                     <div class="col-12 col-xs-12 col-md-12">
                                         <input type="hidden" name="habbo-avatar" id="avatar-code">
@@ -95,7 +91,7 @@
                                 </div>
                             </form>
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-12 pt-2">
                             <h4>Personaliseer je {{hotelname}}</h4>
                             <hr>
                             <div class="row text-center">
@@ -184,11 +180,6 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="modal-footer text-right mt-2">
-                                <input type="hidden" name="switch">
-                                <button type="submit" form="switchForm" class="btn btn-success">Switch account
-                                </button>
                             </div>
                         </div>
                     </div>
