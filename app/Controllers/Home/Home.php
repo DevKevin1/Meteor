@@ -15,7 +15,7 @@ class Home extends \App\Controllers\Application
         $this->userModel = model('UserModel');
       
         $currencys = $this->userCurrency->get($this->user->id);
-        $getArticles = $this->articlesModel->findAll(getenv('meteor.home.news.limit'));
+        $getArticles = $this->articlesModel->findAll(getenv('meteor.limit.news'));
       
         return $this->render('home/me', ['articles' => $getArticles, 'currencys' => $currencys]);
     }

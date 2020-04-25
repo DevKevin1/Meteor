@@ -12,7 +12,7 @@ class Highscores extends \App\Controllers\Application
 
     public function view() 
     {
-        $getMostCredits = $this->communityModel->select('username, credits, look')->findAll();
+        $getMostCredits = $this->communityModel->select('username, credits, look')->findAll(getenv('meteor.limit.highscores'));
         return $this->render('community/overview', ['getCreditsUsers' => $getMostCredits]);
     }
 }

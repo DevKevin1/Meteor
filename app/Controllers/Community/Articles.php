@@ -19,7 +19,7 @@ class Articles extends \App\Controllers\Application
         }
       
         $article->author = $this->userModel->getUserById($article->id, 'username,look');
-        $getArticles = $this->articlesModel->orderBy('id', 'desc')->findAll(getenv('meteor.news.limit'));
+        $getArticles = $this->articlesModel->orderBy('id', 'desc')->findAll(getenv('meteor.limit.news'));
 
         return $this->render('community/article', ['allArticles' => $getArticles, 'item' => $article]);
     }

@@ -53,6 +53,8 @@ $routes->post('api/newuser/select/name', 'Auth\Nux::selectName');
 $routes->post('api/newuser/save/figure', 'Auth\Nux::saveFigure');
 $routes->post('api/newuser/save/room', 'Auth\Nux::saveRoom');
 
+$routes->get('/housekeeping/home', 'Admin\Home::view');
+
 /**
  * --------------------------------------------------------------------
  * Additional Routing
