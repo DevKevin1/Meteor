@@ -1,0 +1,85 @@
+{% extends "admin.html" %}
+{% block body %}
+<div class="row">
+    <div class="col-xl-12">
+       <div class="kt-portlet kt-portlet--height-fluid kt-portlet--mobile ">
+          <div class="kt-portlet__head kt-portlet__head--lg">
+             <div class="kt-portlet__head-label">
+                <span class="kt-portlet__head-icon">
+                <i class="kt-font-brand flaticon2-user"></i>
+                </span>
+                <h3 class="kt-portlet__head-title">
+                   Latest Players
+                </h3>
+             </div>
+          </div>
+       <div class="kt-portlet__body">
+		<!--begin: Datatable -->
+		<div id="kt_table_1_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+<table class="table table-striped table-bordered dataTable">
+        <thead>
+            <tr>
+                <th>{{hotelname}} name</th>
+                <th>Last / Reg IP</th>
+                <th>Creation Date</th>
+                <th>Mail Verified</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in latestUsers %}
+            <tr>
+                <td><a href="#" data-toggle="modal" data-target="#showUser">{{user.username}}</a></td>
+                <td>{{user.ip_current}} / {{user.ip_register}}</td>
+                <td>{{user.account_created|date("d-m-Y H:i:s")}}</td>
+                {% if user.mail_verified %}
+                    <td><span class="btn btn-label-success btn-sm">Verified</span></td>
+                {% else %}
+              <td><span class="btn btn-label-danger btn-sm">Unverified</span></td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+            </div>
+          </div>
+       </div>
+    </div>
+    <div class="col-xl-12">
+       <div class="kt-portlet kt-portlet--height-fluid kt-portlet--mobile ">
+          <div class="kt-portlet__head kt-portlet__head--lg">
+             <div class="kt-portlet__head-label">
+                <span class="kt-portlet__head-icon">
+                <i class="kt-font-brand flaticon2-refresh"></i>
+                </span>
+                <h3 class="kt-portlet__head-title">
+                   Latest Namchanges              
+                </h3>
+             </div>
+             <div class="kt-portlet__head-toolbar">
+                <div class="kt-portlet__head-wrapper">
+                   <div class="col-md-8 kt-margin-b-20-tablet-and-mobile">
+                      <div class="kt-input-icon kt-input-icon--left">
+                         <input type="text" class="form-control" placeholder="Search..." id="searchNamechange">
+                         <span class="kt-input-icon__icon kt-input-icon__icon--left">
+                         <span><i class="la la-search"></i></span>
+                         </span>
+                      </div>
+                   </div>
+                   &nbsp;
+                   <div class="col-md-4 kt-tablet-and-mobile">
+                      <div class="kt-form__group kt-form__group--inline">
+                         <div class="kt-form__label">
+                            <button class="btn btn-secondary" type="button" id="kt_datatable_reload">Reload</button>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>
+          <div class="kt-portlet__body kt-portlet__body--fit">
+              <div id="kt_datatable_latest_namechanges"></div>
+          </div>
+       </div>
+    </div>
+</div>
+{% endblock %}

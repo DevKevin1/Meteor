@@ -1,4 +1,5 @@
-<?php namespace Config;
+<?php 
+namespace Config;
 
 use CodeIgniter\Config\Services as CoreServices;
 use CodeIgniter\Config\BaseConfig;
@@ -21,13 +22,4 @@ require_once SYSTEMPATH . 'Config/Services.php';
 class Services extends CoreServices
 {
 
-	//    public static function example($getShared = true)
-	//    {
-	//        if ($getShared)
-	//        {
-	//            return static::getSharedInstance('example');
-	//        }
-	//
-	//        return new \CodeIgniter\Example();
-	//    }
 }

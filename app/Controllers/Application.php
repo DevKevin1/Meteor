@@ -29,8 +29,15 @@ class Application extends Controller
         $this->session = \Config\Services::session();
       
         if ($this->session->has('user')) { 
+            //* Load Roles and Permissions
+            $this->role = \Config\Services::enforcer();
+          
+            //* Load User Data
             $this->accounts = (new UserModel())->where('mail', $this->session->get('user')->mail)->findAll(); 
             $this->user = (new UserModel())->find($this->session->get('user')->id);
+          
+            //* Set Permission
+            $this->user->permission = $this->role->getRolesForUser($this->user->rank);
         }
     }
   

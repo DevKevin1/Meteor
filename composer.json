@@ -2,12 +2,13 @@
     "name": "devraizer/meteor",
     "type": "project",
     "description": "Simple, Basic, Framework , CMS for Habbo",
-    "homepage": "https://meteorproject.online",
+    "homepage": "https://projectmeteor.online",
     "license": "MIT",
     "require": {
         "php": ">=7.2",
         "codeigniter4/framework": "^4",
-        "twig/twig": "^2.0"
+        "twig/twig": "^2.0",
+        "casbin/codeigniter-permission": "^1.0"
     },
     "require-dev": {
         "mikey179/vfsstream": "1.6.*",

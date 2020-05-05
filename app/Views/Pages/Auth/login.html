@@ -1,14 +1,13 @@
 {% extends "base.html" %}
 {% block body %}
-      <div class="row">
-            <div class="col-md-6 mt-3 animated pulse">
-                <div class="card">
-                    <div class="card-body">
-                        <h4>Welkom op {{hotelname}}!</h4>
+    <div class="card" style="margin-top: 15vh;">
+        <div class="card-body" style="padding: 0px !important">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="p-3">
+                        <h3 class="aside-title">Inloggen</h3>
                         <hr>
-                        <div class="row text-left">
-                            <div class="col-md-12">
-                                <form action="/auth/login/request" method="post" id="login">
+                             <form action="/auth/login/request" method="post" id="login">
                                     <label for="username">Uw mailadres</label>
                                     <input type="text" name="mail" id="mail" class="form-control {% if validation.geterror('mail') %}error{% endif %}"
                                            placeholder="Vul hier uw mailadres in...">
@@ -25,23 +24,18 @@
                                   </div>
                                     </div>
                                 </form>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
-            </div>
-            <div class="col-md-6 mt-3 spotlight animated pulse delay-2s">
-                <div class="card">
-                    <div class="card-body">
-                        <h4>{{hotelname}} Spotlight</h4>
-                        <hr>
-                        <div class="slideshow-container">
                             {% for article in articles %}
-                            <div class="newsItem text-left mt-2 newsSlides inFade" style="background-image: url({{article.header}}); background-repeat: no-repeat; background-size: cover; height:220px; width: 100%; border-radius: 2px;">
+                            <div class="col-md-6 text-white newsItem text-left newsSlides inFade" style="background-image: url({{article.header}}); background-repeat: no-repeat; background-size: cover; background-position: center;">
                                 <div class="numbertext">{{loop.index}} / {{articles|length}}</div>
                                 <div class="row">
                                     <div class="col-md-8">
-                                        <h3 class="text-left text-white pl-4" style="padding-top: 3.5vh; text-shadow: 2px 2px black;">{{article.title}}</h3>
+                                        <h3 class="text-left text-white pl-4 mt-2" style="padding-top: 3.5vh; text-shadow: 2px 2px black;">
+                                            {{article.short_story}}
+                                        </h3>
+                                        
                                         <span class="align-bottom">
                                             <a href="/community/article/{{article.id}}/{{article.slug}}" class="btn btn-outline-light ml-4">Lees meer...</a>
                                         </span>
@@ -51,12 +45,9 @@
 
                             {% endfor %}
 
-                            <a class="prev" onclick="siteLoader.nextSlide(-1)">&#10094;</a>
-                            <a class="next" onclick="siteLoader.nextSlide(1)">&#10095;</a>
-
-                        </div>
                     </div>
                 </div>
-            </div>
+
         </div>
+    </div>
 {% endblock %}

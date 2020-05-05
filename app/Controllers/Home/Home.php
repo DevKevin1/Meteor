@@ -9,7 +9,7 @@ class Home extends \App\Controllers\Application
     }
   
     public function me()
-    {
+    { 
         $this->userCurrency = model('UserCurrencyModel');
         $this->articlesModel = model('ArticlesModel');
         $this->userModel = model('UserModel');
