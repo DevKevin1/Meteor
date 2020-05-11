@@ -39,35 +39,84 @@
       </div>
       <!-- end:: Header Mobile -->
       <div class="kt-grid kt-grid--hor kt-grid--root">
-         <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver kt-page">
-            <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor kt-wrapper " id="kt_wrapper">
-               <!-- begin:: Header -->
-               <div id="kt_header" class="kt-header kt-grid__item  kt-header--fixed " data-ktheader-minimize="on">
-                  <div class="kt-header__top">
-                     <div class="kt-container ">
-                        <!-- begin:: Brand -->
-                        <div class="kt-header__brand   kt-grid__item" id="kt_header_brand">
-                           <div class="kt-header__brand-logo">
-                              <a href="/housekeeping">
-                              <img src="https://habbofont.net/font/habbnew/Meteor.gif" class="img-fluid pt-3" alt="" style="position: relative; z-index: 100;">
-                              </a>
-                           </div>
+      <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver kt-page">
+         <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor kt-wrapper " id="kt_wrapper">
+            <!-- begin:: Header -->
+            <div id="kt_header" class="kt-header kt-grid__item  kt-header--fixed " data-ktheader-minimize="on">
+               <div class="kt-header__top">
+                  <div class="kt-container ">
+                     <!-- begin:: Brand -->
+                     <div class="kt-header__brand   kt-grid__item" id="kt_header_brand">
+                        <div class="kt-header__brand-logo">
+                           <a href="/housekeeping">
+                           <img src="https://habbofont.net/font/habbnew/Meteor.gif" class="img-fluid pt-3" alt="" style="position: relative; z-index: 100;">
+                           </a>
                         </div>
-                        <!-- end:: Brand -->
-                        <!-- begin:: Header Topbar -->
-                        <!-- end:: Header Topbar -->
                      </div>
+                     <!-- end:: Brand -->
+                     <!-- begin:: Header Topbar -->
+                     <!-- end:: Header Topbar -->
                   </div>
-                  <div class="kt-header__bottom">
-                     <div class="kt-container ">
-                        <!-- begin: Header Menu -->
-                        <button class="kt-header-menu-wrapper-close" id="kt_header_menu_mobile_close_btn"><i class="la la-close"></i></button>
-                        <div class="kt-header-menu-wrapper" id="kt_header_menu_wrapper">
-                           <div id="kt_header_menu" class="kt-header-menu kt-header-menu-mobile ">
-                              <ul class="kt-menu__nav ">
-                                 <li class="kt-menu__item  kt-menu__item--submenu kt-menu__item--rel" data-ktmenu-submenu-toggle="click" aria-haspopup="true"><a href="javascript:;" class="kt-menu__link kt-menu__toggle"><span class="kt-menu__link-text">Dashboard</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
-                                 </li>
-                              </ul>
+               </div>
+               <div class="kt-header__bottom">
+                  <div class="kt-container ">
+                     <!-- begin: Header Menu -->
+                     <button class="kt-header-menu-wrapper-close" id="kt_header_menu_mobile_close_btn"><i class="la la-close"></i></button>
+                     <div class="kt-header-menu-wrapper" id="kt_header_menu_wrapper">
+                        <div id="kt_header_menu" class="kt-header-menu kt-header-menu-mobile "  >
+                           <ul class="kt-menu__nav ">
+                              <li class="kt-menu__item  kt-menu__item--open kt-menu__item--here kt-menu__item--submenu kt-menu__item--rel kt-menu__item--open kt-menu__item--here"  data-ktmenu-submenu-toggle="click" aria-haspopup="true">
+                                 <a  href="/housekeeping" class="kt-menu__link kt-menu__toggle"><span class="kt-menu__link-text">Dashboards</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+                              </li>
+                              <li class="kt-menu__item  kt-menu__item--submenu kt-menu__item--rel"  data-ktmenu-submenu-toggle="click" aria-haspopup="true">
+                                 <a  href="javascript:;" class="kt-menu__link kt-menu__toggle"><span class="kt-menu__link-text">Logs</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+                                 <div class="kt-menu__submenu kt-menu__submenu--classic kt-menu__submenu--left">
+                                    <ul class="kt-menu__subnav">
+                                       <li class="kt-menu__item  kt-menu__item--submenu"  data-ktmenu-submenu-toggle="hover" aria-haspopup="true">
+                                          <a  href="javascript:;" class="kt-menu__link kt-menu__toggle">
+                                             <span class="kt-menu__link-icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
+                                                   <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                      <polygon points="0 0 24 0 24 24 0 24"/>
+                                                      <path d="M18,8 L16,8 C15.4477153,8 15,7.55228475 15,7 C15,6.44771525 15.4477153,6 16,6 L18,6 L18,4 C18,3.44771525 18.4477153,3 19,3 C19.5522847,3 20,3.44771525 20,4 L20,6 L22,6 C22.5522847,6 23,6.44771525 23,7 C23,7.55228475 22.5522847,8 22,8 L20,8 L20,10 C20,10.5522847 19.5522847,11 19,11 C18.4477153,11 18,10.5522847 18,10 L18,8 Z M9,11 C6.790861,11 5,9.209139 5,7 C5,4.790861 6.790861,3 9,3 C11.209139,3 13,4.790861 13,7 C13,9.209139 11.209139,11 9,11 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+                                                      <path d="M0.00065168429,20.1992055 C0.388258525,15.4265159 4.26191235,13 8.98334134,13 C13.7712164,13 17.7048837,15.2931929 17.9979143,20.2 C18.0095879,20.3954741 17.9979143,21 17.2466999,21 C13.541124,21 8.03472472,21 0.727502227,21 C0.476712155,21 -0.0204617505,20.45918 0.00065168429,20.1992055 Z" fill="#000000" fill-rule="nonzero"/>
+                                                   </g>
+                                                </svg>
+                                             </span>
+                                             <span class="kt-menu__link-text">Chatlogs</span></i>
+                                          </a>
+                                       </li>
+                                       <li class="kt-menu__item  kt-menu__item--submenu"  data-ktmenu-submenu-toggle="hover" aria-haspopup="true">
+                                          <a  href="javascript:;" class="kt-menu__link kt-menu__toggle">
+                                             <span class="kt-menu__link-icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
+                                                   <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                      <polygon points="0 0 24 0 24 24 0 24"/>
+                                                      <path d="M18,8 L16,8 C15.4477153,8 15,7.55228475 15,7 C15,6.44771525 15.4477153,6 16,6 L18,6 L18,4 C18,3.44771525 18.4477153,3 19,3 C19.5522847,3 20,3.44771525 20,4 L20,6 L22,6 C22.5522847,6 23,6.44771525 23,7 C23,7.55228475 22.5522847,8 22,8 L20,8 L20,10 C20,10.5522847 19.5522847,11 19,11 C18.4477153,11 18,10.5522847 18,10 L18,8 Z M9,11 C6.790861,11 5,9.209139 5,7 C5,4.790861 6.790861,3 9,3 C11.209139,3 13,4.790861 13,7 C13,9.209139 11.209139,11 9,11 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+                                                      <path d="M0.00065168429,20.1992055 C0.388258525,15.4265159 4.26191235,13 8.98334134,13 C13.7712164,13 17.7048837,15.2931929 17.9979143,20.2 C18.0095879,20.3954741 17.9979143,21 17.2466999,21 C13.541124,21 8.03472472,21 0.727502227,21 C0.476712155,21 -0.0204617505,20.45918 0.00065168429,20.1992055 Z" fill="#000000" fill-rule="nonzero"/>
+                                                   </g>
+                                                </svg>
+                                             </span>
+                                             <span class="kt-menu__link-text">Banlogs</span></i>
+                                          </a>
+                                       </li>
+                                       <li class="kt-menu__item  kt-menu__item--submenu"  data-ktmenu-submenu-toggle="hover" aria-haspopup="true">
+                                          <a  href="javascript:;" class="kt-menu__link kt-menu__toggle">
+                                             <span class="kt-menu__link-icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
+                                                   <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                      <polygon points="0 0 24 0 24 24 0 24"/>
+                                                      <path d="M18,8 L16,8 C15.4477153,8 15,7.55228475 15,7 C15,6.44771525 15.4477153,6 16,6 L18,6 L18,4 C18,3.44771525 18.4477153,3 19,3 C19.5522847,3 20,3.44771525 20,4 L20,6 L22,6 C22.5522847,6 23,6.44771525 23,7 C23,7.55228475 22.5522847,8 22,8 L20,8 L20,10 C20,10.5522847 19.5522847,11 19,11 C18.4477153,11 18,10.5522847 18,10 L18,8 Z M9,11 C6.790861,11 5,9.209139 5,7 C5,4.790861 6.790861,3 9,3 C11.209139,3 13,4.790861 13,7 C13,9.209139 11.209139,11 9,11 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+                                                      <path d="M0.00065168429,20.1992055 C0.388258525,15.4265159 4.26191235,13 8.98334134,13 C13.7712164,13 17.7048837,15.2931929 17.9979143,20.2 C18.0095879,20.3954741 17.9979143,21 17.2466999,21 C13.541124,21 8.03472472,21 0.727502227,21 C0.476712155,21 -0.0204617505,20.45918 0.00065168429,20.1992055 Z" fill="#000000" fill-rule="nonzero"/>
+                                                   </g>
+                                                </svg>
+                                             </span>
+                                             <span class="kt-menu__link-text">Stafflogs</span></i>
+                                          </a>
+                                       </li>
+                                    </ul>
+                              </li>
+                           </ul>
                            </div>
                            <div class="kt-header-toolbar">
                               <div class="kt-quick-search kt-quick-search--inline kt-quick-search--result-compact" id="kt_quick_search_inline">
@@ -80,18 +129,13 @@
                                  </form>
                                  <div id="kt_quick_search_toggle" data-toggle="dropdown" data-offset="0px,10px"></div>
                                  <div class="dropdown-menu dropdown-menu-fit dropdown-menu-right dropdown-menu-anim dropdown-menu-lg">
-                                    <div class="kt-quick-search__wrapper kt-scroll ps" data-scroll="true" data-height="300" data-mobile-height="200" style="height: 300px; overflow: hidden;">
-                                       <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
-                                          <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
-                                       </div>
-                                       <div class="ps__rail-y" style="top: 0px; right: 0px;">
-                                          <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div>
-                                       </div>
+                                    <div class="kt-quick-search__wrapper kt-scroll" data-scroll="true" data-height="300" data-mobile-height="200">
                                     </div>
                                  </div>
                               </div>
                            </div>
                         </div>
+                        <!-- end: Header Menu -->
                      </div>
                   </div>
                </div>
@@ -108,25 +152,25 @@
       <div id="kt_scrolltop" class="kt-scrolltop">
          <i class="fa fa-arrow-up"></i>
       </div>
-     <div class="modal fade" id="showUser" tabindex="-1" role="dialog" aria-labelledby="showUser" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="showUser">Modal title</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            ...
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-          </div>
-        </div>
+      <div class="modal fade" id="showUser" tabindex="-1" role="dialog" aria-labelledby="showUser" aria-hidden="true">
+         <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h5 class="modal-title" id="showUser">Modal title</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                  </button>
+               </div>
+               <div class="modal-body">
+                  ...
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+               </div>
+            </div>
+         </div>
       </div>
-    </div>
       <script>
          var KTAppOptions = {
              "colors": {
@@ -149,12 +193,12 @@
       </script>
       <script src="/assets/javascript/admin/plugins.js" type="text/javascript"></script>
       <script src="/assets/javascript/admin/scripts.js" type="text/javascript"></script>
-                            <script src="https://keenthemes.com/metronic/themes/metronic/theme/default/demo5/dist/assets/plugins/custom/datatables/datatables.bundle.js" type="text/javascript"></script>
-                            <script src="https://keenthemes.com/metronic/themes/metronic/theme/default/demo5/dist/assets/js/pages/crud/datatables/basic/paginations.js" type="text/javascript"></script>
+      <script src="https://keenthemes.com/metronic/themes/metronic/theme/default/demo5/dist/assets/plugins/custom/datatables/datatables.bundle.js" type="text/javascript"></script>
+      <script src="https://keenthemes.com/metronic/themes/metronic/theme/default/demo5/dist/assets/js/pages/crud/datatables/basic/paginations.js" type="text/javascript"></script>
       <script>
-                $(document).ready(function() {
-            $('.dataTable').DataTable();
-        });
+         $(document).ready(function() {
+         $('.dataTable').DataTable();
+         });
       </script>
    </body>
 </html>

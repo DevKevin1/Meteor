@@ -13,11 +13,11 @@ class Staff extends \App\Controllers\Application
 
     public function view()
     {
-        $ranks = $this->permissionModel->ranks();
-      
-        foreach($ranks as $row) {
-            if(!$this->permissionModel->exists('website_invisible_staff', $row->id))
-            {
+        $ranks = $this->permissionModel->select('id, rank_name')->where('id > ', 2)->findAll();
+
+        foreach($ranks as $row) 
+        {
+            if($this->role->hasRoleForUser($this->user->rank, 'website_invisible_staff')) {
                 $row->users = $this->userModel->getDataByRank($row->id);
             }
         }

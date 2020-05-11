@@ -51,26 +51,29 @@
                 <hr>
                 <div class="row text-left">
                     <div class="container">
-
-                        <div class="slideshow-container">
+                        <div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel">
+                          <div class="carousel-inner" role="listbox">
                             {% for article in articles %}
-                            <div class="newsItem newsSlides inFade" style="background-image: url({{article.header}}); background-repeat: no-repeat; background-size: cover; height:220px; width: 100%; border-radius: 2px;">
+                            <div class="text-white text-left carousel-item {% if loop.first %}active{% endif %}" style="background-image: url({{article.header}}); background-repeat: no-repeat; background-size: cover; background-position: center; height: 230px;">
                                 <div class="numbertext">{{loop.index}} / {{articles|length}}</div>
                                 <div class="row">
                                     <div class="col-md-8">
-                                        <h3 class="text-left text-white pl-4" style="padding-top: 3.5vh; text-shadow: 2px 2px black;">{{article.title}}</h3>
+                                        <h4 class="text-left text-white pl-4 mt-2" style="width:75%;padding-top: 3.5vh; text-shadow: 2px 2px black;">
+                                            {{article.short_story}}
+                                        </h4>
+                                        
                                         <span class="align-bottom">
                                             <a href="/community/article/{{article.id}}/{{article.slug}}" class="btn btn-outline-light ml-4">Lees meer...</a>
                                         </span>
                                     </div>
                                 </div>
                             </div>
-
                             {% endfor %}
-
-                            <a class="prev" onclick="siteLoader.nextSlide(-1)">&#10094;</a>
-                            <a class="next" onclick="siteLoader.nextSlide(1)">&#10095;</a>
-
+                          </div>
+                          <a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                          </a>
                         </div>
                     </div>
                 </div>

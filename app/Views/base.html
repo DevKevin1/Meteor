@@ -1,161 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-    <meta name="description" content="Virtual world for young people where you can make and meet friends. Meet and make friends, chat with others, create your own avatar, design your own room for free and much more ...">
-    <meta name="keywords" content="cosmic, Cosmic, virtual, world, social network, free, community, avatar, chat, online, teen, roleplaying, join, social, groups, forums, safe, play, games, online, friends, teens, rare, rare meubi, collect, make, collect, contact, meubi, furniture, pets, furnish room, share, expression, badges, hangout, music, celebrity, VIP visits, celebs, mmo, mmorpg">
-  
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
-    <link rel="stylesheet" href="https://codeseven.github.io/toastr/build/toastr.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Baloo+Da+2&display=swap">
-  
-    <link rel="stylesheet" href="/assets/css/avatargenerate.css">
-    <link rel="stylesheet" href="/assets/css/style.css?v=11">
-  
-    {% block css %}{% endblock %}
-    <title>{{hotelname}} - Homepagina</title>
-</head>
-<body>
-
-<header>
-    {% if user %}
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-transparent">
-        <div class="container">
-            <a href="/"><img src="/assets/images/logo.png" class="img-fluid" width="150" alt=""></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
-                    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fa fa-bars" aria-hidden="true"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fa fa-users"></i> Community
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkCommunity">
-                            <a class="dropdown-item" href="/community/news">Articles</a>
-                            <a class="dropdown-item" href="#">Ruilwaardes</a>
-                            <a class="dropdown-item" href="/community/highscores">Highscores</a>
-                            <a class="dropdown-item" href="/community/staff">Medewerkers</a>
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="description" content="Virtual world for young people where you can make and meet friends. Meet and make friends, chat with others, create your own avatar, design your own room for free and much more ...">
+      <meta name="keywords" content="cosmic, Cosmic, virtual, world, social network, free, community, avatar, chat, online, teen, roleplaying, join, social, groups, forums, safe, play, games, online, friends, teens, rare, rare meubi, collect, make, collect, contact, meubi, furniture, pets, furnish room, share, expression, badges, hangout, music, celebrity, VIP visits, celebs, mmo, mmorpg">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+      <link rel="stylesheet" href="https://codeseven.github.io/toastr/build/toastr.min.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Baloo+Da+2&display=swap">
+      <link rel="stylesheet" href="/assets/css/avatargenerate.css">
+      <link rel="stylesheet" href="/assets/css/style.css?v=16">
+      {% block css %}{% endblock %}
+      <title>{{hotelname}} - Homepagina</title>
+      <style>
+         .sticky {
+         position: fixed;
+         top: 0;
+         width: 100%;
+         }
+      </style>
+   </head>
+   <body>
+      <header>
+         {% if user %}
+         <header id="flex">
+            <div class="container">
+               <div class="row">
+                  <div class="col-md-6 p-3">
+                     <a href="/">
+                     <img src="https://use.retrotimes.co/ajax/fontgenerator/images/logos/600fa53d4dc45b872946240c6675cc6f/3c59dc048e8850243be8079a5c74d079/14f92030ec0040e329440e14b61481b2/06eb59.png" class="img-fluid pt-3" alt="" style="position: relative; z-index: 100;">
+                     </a>
+                  </div>
+                  <div class="col-md-6 m-0 p-4">
+                     <div class="d-flex justify-content-end">
+                        <div class="card p-0" style="width: 40%;">
+                           <div class="card-body text-center">
+                              <h6 class="m-0"><b> 20 </b> <span class="text-muted">spelers online</span></h6>
+                           </div>
                         </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuShops" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fa fa-shopping-cart"></i> {{hotelname}} Shop
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">Nieuws</a>
-                            <a class="dropdown-item" href="#">Ruilwaardes</a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </header>
+         <div class="container-fluid p-0">
+            <nav id="test" class="navbar navbar-expand-lg navbar-light bg-light scrolling-navbar fixed mr-0 p-3">
+               <div class="container">
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                     <ul class="navbar-nav mr-auto">
+                        <li class="nav-item dropdown">
+                           <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                           <i class="fa fa-users"></i> Community
+                           </a>
+                           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkCommunity">
+                              <a class="dropdown-item" href="/community/news">Articles</a>
+                              <a class="dropdown-item" href="#">Ruilwaardes</a>
+                              <a class="dropdown-item" href="/community/highscores">Highscores</a>
+                              <a class="dropdown-item" href="/community/staff">Medewerkers</a>
+                           </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuShops" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                           <i class="fa fa-shopping-cart"></i> {{hotelname}} Shop
+                           </a>
+                           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                              <a class="dropdown-item" href="#">Nieuws</a>
+                              <a class="dropdown-item" href="#">Ruilwaardes</a>
+                           </div>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="/housekeeping"><i class="fa fa-gavel fa-flip-horizontal"></i>  Help</a>
+                        </li>
+                     </ul>
+                     <ul class="navbar-nav ml-auto nav-flex-icons">
+                        {% if 'housekeeping' in user.permission %}
+                        <li class="nav-item">
+                           <a class="nav-link" href="/housekeeping"><i class="fa fa-gavel fa-flip-horizontal"></i>  Housekeeping</a>
+                        </li>
+                        {% endif %}
+                        <li class="nav-item avatar dropdown">
+                           <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
+                              aria-haspopup="true" aria-expanded="false">
+                           <img  src="https://habbo.com.br/habbo-imaging/avatarimage?figure={{user.look}}&gesture=sml&headonly=1" style="margin-top: -25px;margin-bottom: -15px;">
+                           </a>
+                           <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
+                              aria-labelledby="navbarDropdownMenuLink-55">
+                              <a class="dropdown-item" href="/auth/logout">Logout</a>
+                              <a class="dropdown-item" href="#">Settings</a>
+                              <a class="dropdown-item" href="#" data-toggle="modal" data-target="#switchUser">Switch from user</a>
+                           </div>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </nav>
+         </div>
+         {% endif %}
+         {% if not user %}
+         <div class="container">
+            <div class="row">
+               <div class="col-md-6 pt-3">
+                  <img src="https://habbofont.net/font/habbnew/{{hotelname}}.gif" class="img-fluid pt-3" alt="" style="position: relative; z-index: 100;">
+               </div>
+               <div class="col-md-6 m-0 p-3">
+                  <div class="d-flex justify-content-end">
+                     <div class="card p-0" style="width: 40%;">
+                        <div class="card-body text-center">
+                           <h6 class="m-0"><b> 20 </b> <span class="text-muted">spelers online</span></h6>
                         </div>
-                    </li>
-                    {% if 'housekeeping' in user.permission %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="/housekeeping"><i class="fa fa-gavel fa-flip-horizontal"></i>  Housekeeping</a>
-                    </li>
-                    {% endif %}
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownUsers" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fa fa-user"></i> {{user.username}}
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkCommunity">
-                            <a class="dropdown-item" href="/auth/logout">Logout</a>
-                            <a class="dropdown-item" href="#">Settings</a>
-                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#switchUser">Switch from user</a>
-                        </div>
-                    </li>
-                </ul>
+                     </div>
+                  </div>
+               </div>
             </div>
-        </div>
-    </nav>
-    {% endif %}
-  
-    {% if not user %}
-    <div class="container">
-<div class="row">
-        <div class="col-md-6 pt-3">
-            <img src="https://habbofont.net/font/habbnew/{{hotelname}}.gif" class="img-fluid pt-3" alt="" style="position: relative; z-index: 100;">
-        </div>
-        <div class="col-md-6 m-0 p-3">
-            <div class="d-flex justify-content-end">
-                <div class="card p-0" style="width: 40%;">
-                    <div class="card-body text-center">
-                        <h6 class="m-0"><b> 20 </b> <span class="text-muted">spelers online</span></h6>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-    {% endif %}
-</header>
-
-<section>
-    <div class="container mainContainer">
-        {% block body %}{% endblock %}
-    </div>
-</section>
-
-<footer class="font-small blue pt-4">
-    <div class="container text-center text-md-left">
-        <div class="row">
-            <div class="col-md-6 mt-md-0">
-                <h5 class="text-uppercase">MeteorCMS</h5>
-                <p class="text-muted">Made with &hearts; by Raizer & Highrun</p>
-            </div>
-            <div class="col-md-6 text-center pt-1">
-                <ul class="list-unstyled">
-                    <li>
+         </div>
+         {% endif %}
+      </header>
+      <section>
+         <div class="container">
+            {% block body %}{% endblock %}
+         </div>
+      </section>
+      <footer class="font-small blue pt-4">
+         <div class="container text-center text-md-left">
+            <div class="row">
+               <div class="col-md-6 mt-md-0">
+                  <h5 class="text-uppercase">MeteorCMS</h5>
+                  <p class="text-muted">Made with &hearts; by Raizer & Highrun</p>
+               </div>
+               <div class="col-md-6 text-center pt-1">
+                  <ul class="list-unstyled">
+                     <li>
                         <a href="#!">Algemene voorwaarden</a>
-                    </li>
-                    <li>
+                     </li>
+                     <li>
                         <a href="#!">Privacyvoorwaarden</a>
-                    </li>
-                </ul>
+                     </li>
+                  </ul>
+               </div>
             </div>
-        </div>
-    </div>
-</footer>
-
-{% block modals %}{% endblock %}
-
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="https://codeseven.github.io/toastr/build/toastr.min.js"></script>
-<script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"></script>
-<script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"></script>
-<script src="/assets/javascript/avatargenerate.js" type="text/javascript"></script>
-<script src="/assets/javascript/app.js?v={{date().timestamp}}" type="text/javascript"></script>
-  
-{% if flashdata %}
-<script>
-  
-    $(document).ready(function () {
-      
-        {% if flashdata.modal %}
-            $('#{{flashdata.modal}}').modal('show');
-        {% endif %}
-      
-        {% for error,key in validation.getErrors|slice(0,1) %}
-        toastr.error("{{key|capitalize }}", "{{error|capitalize }}");
-        {% endfor %}
-
-        {% if flashdata.error %}
-        toastr.error("{{flashdata.error}}", "Oops..");
-        {% endif %}
-
-        {% if flashdata.info %}
-        toastr.info("{{flashdata.info}}", "Info");
-        {% endif %}
-
-        {% if flashdata.success %}
-        toastr.success("{{flashdata.success}}", "Success!");
-        {% endif %}
-    });
-</script>
-{% endif %}
-  
-</body>
+         </div>
+      </footer>
+      {% block modals %}{% endblock %}
+      <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+      <script src="https://codeseven.github.io/toastr/build/toastr.min.js"></script>
+      <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"></script>
+      <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"></script>
+      <script src="/assets/javascript/avatargenerate.js" type="text/javascript"></script>
+      <script src="/assets/javascript/app.js?v={{date().timestamp}}" type="text/javascript"></script>
+      {% if flashdata %}
+      <script>
+         $(document).ready(function () {
+           
+             {% if flashdata.modal %}
+                 $('#{{flashdata.modal}}').modal('show');
+             {% endif %}
+           
+             {% for error,key in validation.getErrors|slice(0,1) %}
+             toastr.error("{{key|capitalize }}", "{{error|capitalize }}");
+             {% endfor %}
+         
+             {% if flashdata.error %}
+             toastr.error("{{flashdata.error}}", "Oops..");
+             {% endif %}
+         
+             {% if flashdata.info %}
+             toastr.info("{{flashdata.info}}", "Info");
+             {% endif %}
+         
+             {% if flashdata.success %}
+             toastr.success("{{flashdata.success}}", "Success!");
+             {% endif %}
+         });
+      </script>
+      {% endif %}
+   </body>
 </html>

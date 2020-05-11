@@ -27,8 +27,10 @@
 
                     </div>
                 </div>
+                <div id="next" class="carousel slide carousel-fade" data-ride="carousel" style="display: contents;">
+                <div class="carousel-inner" role="listbox" style="display: contents">
                             {% for article in articles %}
-                            <div class="col-md-6 text-white newsItem text-left newsSlides inFade" style="background-image: url({{article.header}}); background-repeat: no-repeat; background-size: cover; background-position: center;">
+                            <div class="col-md-6 text-white text-left carousel-item {% if loop.first %}active{% endif %}" style="background-image: url({{article.header}}); background-repeat: no-repeat; background-size: cover; background-position: center;">
                                 <div class="numbertext">{{loop.index}} / {{articles|length}}</div>
                                 <div class="row">
                                     <div class="col-md-8">
@@ -44,9 +46,14 @@
                             </div>
 
                             {% endfor %}
-
+                          <a class="carousel-control-next" href="#next" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                          </a>
                     </div>
                 </div>
+          </div>
+              </div>
 
         </div>
     </div>
